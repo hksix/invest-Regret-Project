@@ -7,19 +7,21 @@ var $timeInterval = $('[data-role="time-interval"]');
 var $dataKeyNameArr = [ ['tickerName', $tickerName], 
                         ['timeInterval' , $timeInterval],
                         ];
-var $dataArr = [];
-var $dictData= {};
+var $userInputArr = [];
+var $userInputDict= {};
 var $completeURL;
+var $searchDataDict = {};
 
-// example url https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=1min&apikey=5X4II9G2P5S3BJ05
+// HH - example url https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=1min&apikey=5X4II9G2P5S3BJ05
 
-var timeIntervals = ['function=TIME_SERIES_INTRADAY', 'function=TIME_SERIES_DAILY', 'function=TIME_SERIES_WEEKLY', 'function=TIME_SERIES_MONTHLY'];
-var ticker = "symbol=MSFT";
-var dataReturnType = 'datatype=json';
+// HH - timeInterval choices = ['function=TIME_SERIES_INTRADAY', 'function=TIME_SERIES_DAILY', 'function=TIME_SERIES_WEEKLY', 'function=TIME_SERIES_MONTHLY'];
+// HH - ticker example for URL = "symbol=MSFT";
 
-function getData(){
-    var x = $.get("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=60min&apikey=5X4II9G2P5S3BJ05");
+
+function getData(URL){
+    var x = $.get(URL);
     x.then( function (data){
+        $searchDataDict = data;
         console.log(data);
         })   
 }
@@ -28,12 +30,13 @@ $form.on('submit', function (event){
     event.preventDefault();
     setItemToLocal($dataKeyNameArr);
     dataDict($dataKeyNameArr);
-    // // sendDataToServer($dictData);
+    // // sendDataToServer($userInputDict);
     // localStorage.setItem("order", $dataKeyNameArr);
     arrMaker($dataKeyNameArr);
-    // appendOrderToHTML($dictData);
+    // appendOrderToHTML($userInputDict);
     // getOrdersFromAPI();
-    setUrl($dictData);
+    setUrl($userInputDict);
+    getData($completeURL);
 });
 
 function setItemToLocal(arr){
@@ -44,23 +47,28 @@ function setItemToLocal(arr){
 }
 function arrMaker(arr){
     for (var i= 0; i<arr.length; i++){
-        $dataArr.push(arr[i][0], arr[i][1].val());
+        $userInputArr.push(arr[i][0], arr[i][1].val());
     } 
-    return $dataArr;
+    return $userInputArr;
 }
 function setUrl(arr){
-    var completeURL= URL+'function='+$dictData['timeInterval']+"&symbol="+$dictData['tickerName']+"&apikey="+apiKey;
+    var completeURL= URL+'function='+$userInputDict['timeInterval']+"&symbol="+$userInputDict['tickerName']+"&apikey="+apiKey;
     $completeURL = completeURL;
     console.log (completeURL);
 }
 function dataDict(arr){
     for (var i = 0; i< arr.length; i++){
-        $dictData[arr[i][0]] = arr[i][1].val();
+        $userInputDict[arr[i][0]] = arr[i][1].val();
     }
 }
 
 function getServerData(){
-    $.get(URL, function (data){
-        return (JSON.stringify(data));
+    $.get($completeURL, function (data){
+        console.log(JSON.stringify(data));
     });
 }
+
+// HH - hitting submit will run function getData. This will populate the $searchDataDict var
+// to search through dict -  $searchDataDict["Monthly Time Series"]['2000-02-29']
+
+// Object {1. open: "98.5000", 2. high: "110.0000", 3. low: "88.1200", 4. close: "89.3700", 5. volume: "1334487600"}
