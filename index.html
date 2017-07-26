@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Invest Regret Project</title>
+</head>
+<body>
+    <form data-stock-order="form">
+            <div class="form-group">
+              <label for="ticker">ticker name</label>
+              <input class="form-control" name="ticker" id="tickerName" data-role="ticker-name" autofocus>
+            </div>
+            <!-- <form data-coffee-order="form">
+            <div class="form-group">
+              <label for="coffeeOrder">Coffee Order</label>
+              <input class="form-control" name="coffee" id="coffeeOrder" data-role="order" autofocus>
+            </div> -->
+            <div class="form-group">
+              <label for="timeInterval">timeInterval</label>
+              <select id="timeInterval" class="form-control" name="time" data-role="time-interval">
+                <option value="">None</option>
+                <option value="TIME_SERIES_DAILY">Daily</option>
+                <option value="TIME_SERIES_WEEKLY">Weekly</option>
+                <option value="TIME_SERIES_MONTHLY">Monthly</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+            <button type="reset" class="btn btn-default">Reset</button>
+
+
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+    <script src="main.js" charset="utf-8"></script>
+</body>
+</html>
