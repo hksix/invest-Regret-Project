@@ -60,6 +60,8 @@ function getData(URL){
     var x = $.get(URL);
     x.then( function (data){
         $searchDataDict = data;
+        getSplitData();
+        unAdjustforSplit();
         console.log(data);
         console.log(getCloseStartData($startDate.val()));
         console.log(getCloseEndData($endDate.val()));
@@ -81,9 +83,9 @@ function arrMaker(arr){
 }
 function setUrl(arr){
     // var completeURL= $URL+'date.gte='+$userInputDict['startDate']+"&date.lte="+$userInputDict['endDate']+"&ticker="+$userInputDict['tickerName']+"&qopts.columns=date,close&api_key=YiNzVQcDRbgWz1L_khwj";
-    var completeURL = "https://www.quandl.com/api/v3/datasets/WIKI/"+$userInputDict['tickerName']+".json?column_index=4&"+$userInputDict['startDate']+"&"+$userInputDict['endDate']+'&api_key=YiNzVQcDRbgWz1L_khwj';
+    var completeURL = "https://www.quandl.com/api/v3/datasets/WIKI/"+$userInputDict['tickerName']+".json?column_index=4&start_date="+$userInputDict['startDate']+"&end_date="+$userInputDict['endDate']+'&api_key=YiNzVQcDRbgWz1L_khwj';
     $completeURL = completeURL;
-    return completeURL;
+    return $completeURL;
 }
 function dataDict(arr){
     for (var i = 0; i< arr.length; i++){
@@ -91,36 +93,46 @@ function dataDict(arr){
     }
 }
 function getSplitData(){
-var URL = "https://www.quandl.com/api/v3/datasets/WIKI/"+$userInputDict['tickerName']+".json?column_index=7&"+$userInputDict['startDate']+"&"+$userInputDict['endDate']+'&api_key=YiNzVQcDRbgWz1L_khwj';
+var URL = "https://www.quandl.com/api/v3/datasets/WIKI/"+$userInputDict['tickerName']+".json?column_index=7&start_date="+$userInputDict['startDate']+"&end_date="+$userInputDict['endDate']+'&api_key=YiNzVQcDRbgWz1L_khwj';
     var x = $.get(URL);
     x.then( function (data){
         $splitDataArr= data;
         console.log(data);
+        // unAdjustforSplit();
+        // splitCounter()
+        // setTimeout(unAdjustforSplit(),3000);
     });
+    
     }
-// function getServerData(){
-//     $.get($completeURL, function (data){
-//         console.log(JSON.stringify(data));
-//     });
-// }
-function getCloseStartData(startDateVal){
-     return $searchDataDict["datatable"]['data'][0][1];
+
+function getCloseStartData(){
+     var x = $searchDataDict.dataset.data.length;
+     return $searchDataDict["dataset"]['data'][x-1][1];
 }
-function getCloseEndData(EndDateVal){
-     var x = $searchDataDict.datatable.data.length;
-     return $searchDataDict["datatable"]['data'][x-1][1]
+function getCloseEndData(){
+     return $searchDataDict["dataset"]["data"][0][1];
 }
 function splitCounter(){
     var splitCount=[];
-// $splitDataArr["dataset"]["data"][i][1] 
-    // $splitDataArr["dataset"]["data"];
-    for (var i = 0; i<=$splitDataArr.length;i++){
+    for (var i = 0; i<$splitDataArr["dataset"]["data"].length;i++){
         if($splitDataArr["dataset"]["data"][i][1] > 1 ){
-            console.log($splitDataArr["dataset"]["data"][i][1] > 1 )
+            // console.log($splitDataArr["dataset"]["data"][i][1]);
             splitCount.push($splitDataArr["dataset"]["data"][i][1]);
         }
-    }return splitCount;
+    }
+    return splitCount;
     
+    
+}
+function unAdjustforSplit(){
+    var splitarr = splitCounter();
+    var startPrice = getCloseStartData();
+    var combine = splitarr;
+    combine.unshift(startPrice);
+    var adjustedStartPrice = combine.reduce(function (a,b){
+        return a / b;
+    });
+    return adjustedStartPrice;
 }
 
 // HH - hitting submit will run function getData. This will populate the $searchDataDict var
