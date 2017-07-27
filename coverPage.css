@@ -1,0 +1,73 @@
+.main {
+
+}
+
+.header {
+	text-align: center;
+	padding: 5% 0 8% 0;
+	font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;
+	background-color: #1D2F3E;
+	color: white;
+	
+}
+
+.hero {
+	
+	padding-top: 5%;
+	padding-bottom: 5%;
+	font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; 
+	text-align: center;
+
+
+}
+
+.left {
+	
+	font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; 
+	
+	
+}
+
+.right {
+	
+	font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; 
+}
+
+
+.stocks {
+
+	
+	text-align: center;
+	margin: 0 7% 0 7%;
+	background-color: #7F909A;
+	color: white;
+
+
+
+
+
+}
+
+.stocks_top {
+
+	font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; 
+
+}
+
+.stocks_bottom {
+	
+	font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; 
+
+}
+
+
+.footer {
+	
+	font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;
+	text-align: center; 
+	background-color: #1D2F3E;
+	color: white;
+	margin: 0 7% 0 7%;
+	
+
+}
