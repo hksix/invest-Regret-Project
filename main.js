@@ -1,9 +1,9 @@
 // api for alpha Vantage 5X4II9G2P5S3BJ05
 // api for quandl YiNzVQcDRbgWz1L_khwj
 
-var apiKey = "5X4II9G2P5S3BJ05";
+// var apiKey = "5X4II9G2P5S3BJ05";
 // var URL = "https://www.alphavantage.co/query?"
-var URL =  "https://www.quandl.com/api/v3/datatables/WIKI/PRICES.json?"
+var $URL =  "https://www.quandl.com/api/v3/datatables/WIKI/PRICES.json?"
 var $form = $('[data-stock-order="form"]');
 var $tickerName = $('[data-role="ticker-name"]');
 var $timeInterval = $('[data-role="time-interval"]');
@@ -20,6 +20,7 @@ var $userInputArr = [];
 var $userInputDict= {};
 var $completeURL;
 var $searchDataDict = {};
+var $splitDataArr;
 
 // HH - example url https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=1min&apikey=5X4II9G2P5S3BJ05
 
@@ -27,16 +28,7 @@ var $searchDataDict = {};
 // HH - ticker example for URL = "symbol=MSFT";
 
 
-function getData(URL){
-    var x = $.get(URL);
-    x.then( function (data){
-        $searchDataDict = data;
-        console.log(data);
-        console.log(getCloseStartData($startDate.val()));
-        console.log(getCloseEndData($endDate.val()));
 
-        });   
-}
 $(document).ready(function() {
     var date = new Date();
 
@@ -53,7 +45,7 @@ $(document).ready(function() {
 
 $form.on('submit', function (event){
     event.preventDefault();
-    setItemToLocal($dataKeyNameArr);
+    // setItemToLocal($dataKeyNameArr);
     dataDict($dataKeyNameArr);
     // // sendDataToServer($userInputDict);
     // localStorage.setItem("order", $dataKeyNameArr);
@@ -64,13 +56,23 @@ $form.on('submit', function (event){
     getData($completeURL);
     
 });
+function getData(URL){
+    var x = $.get(URL);
+    x.then( function (data){
+        $searchDataDict = data;
+        console.log(data);
+        console.log(getCloseStartData($startDate.val()));
+        console.log(getCloseEndData($endDate.val()));
 
-function setItemToLocal(arr){
-    for (var i= 0; i<arr.length; i++){
-            localStorage.setItem(arr[i][0], arr[i][1].val());
-        
-    }
+        });   
 }
+
+// function setItemToLocal(arr){
+//     for (var i= 0; i<arr.length; i++){
+//             localStorage.setItem(arr[i][0], arr[i][1].val());
+        
+//     }
+// }
 function arrMaker(arr){
     for (var i= 0; i<arr.length; i++){
         $userInputArr.push(arr[i][0], arr[i][1].val());
@@ -78,8 +80,8 @@ function arrMaker(arr){
     return $userInputArr;
 }
 function setUrl(arr){
-    // var completeURL= URL+'function='+$userInputDict['timeInterval']+"&symbol="+$userInputDict['tickerName']+"&apikey="+apiKey;
-    var completeURL= URL+'date.gte='+$userInputDict['startDate']+"&date.lte="+$userInputDict['endDate']+"&ticker="+$userInputDict['tickerName']+"&qopts.columns=date,close&api_key=YiNzVQcDRbgWz1L_khwj";
+    // var completeURL= $URL+'date.gte='+$userInputDict['startDate']+"&date.lte="+$userInputDict['endDate']+"&ticker="+$userInputDict['tickerName']+"&qopts.columns=date,close&api_key=YiNzVQcDRbgWz1L_khwj";
+    var completeURL = "https://www.quandl.com/api/v3/datasets/WIKI/"+$userInputDict['tickerName']+".json?column_index=4&"+$userInputDict['startDate']+"&"+$userInputDict['endDate']+'&api_key=YiNzVQcDRbgWz1L_khwj';
     $completeURL = completeURL;
     return completeURL;
 }
@@ -88,27 +90,54 @@ function dataDict(arr){
         $userInputDict[arr[i][0]] = arr[i][1].val();
     }
 }
-
-function getServerData(){
-    $.get($completeURL, function (data){
-        console.log(JSON.stringify(data));
+function getSplitData(){
+var URL = "https://www.quandl.com/api/v3/datasets/WIKI/"+$userInputDict['tickerName']+".json?column_index=7&"+$userInputDict['startDate']+"&"+$userInputDict['endDate']+'&api_key=YiNzVQcDRbgWz1L_khwj';
+    var x = $.get(URL);
+    x.then( function (data){
+        $splitDataArr= data;
+        console.log(data);
     });
-}
+    }
+// function getServerData(){
+//     $.get($completeURL, function (data){
+//         console.log(JSON.stringify(data));
+//     });
+// }
 function getCloseStartData(startDateVal){
-    var formatedDate = startDateVal
-     return $searchDataDict["Time Series (Daily)"][startDateVal]['4. close'];
+     return $searchDataDict["datatable"]['data'][0][1];
 }
 function getCloseEndData(EndDateVal){
-     return $searchDataDict["Time Series (Daily)"][EndDateVal]['4. close'];
+     var x = $searchDataDict.datatable.data.length;
+     return $searchDataDict["datatable"]['data'][x-1][1]
+}
+function splitCounter(){
+    var splitCount=[];
+// $splitDataArr["dataset"]["data"][i][1] 
+    // $splitDataArr["dataset"]["data"];
+    for (var i = 0; i<=$splitDataArr.length;i++){
+        if($splitDataArr["dataset"]["data"][i][1] > 1 ){
+            console.log($splitDataArr["dataset"]["data"][i][1] > 1 )
+            splitCount.push($splitDataArr["dataset"]["data"][i][1]);
+        }
+    }return splitCount;
+    
 }
 
 // HH - hitting submit will run function getData. This will populate the $searchDataDict var
-// to search through dict -  $searchDataDict["Monthly Time Series"]['2000-02-29']
+// to search through dict -  $searchDataDict["datatable"]['data'][0][1] for the first day
+// this will get you the last day var x = $searchDataDict.datatable.data.length
+//$searchDataDict["datatable"]['data'][x-1][1]; this is the last day
 
-// Object {1. open: "98.5000", 2. high: "110.0000", 3. low: "88.1200", 4. close: "89.3700", 5. volume: "1334487600"}
-//$searchDataDict["Monthly Time Series"][($startDate.val())]['1. open'];
-//$searchDataDict["Time Series (Daily)"][($startDate.val())]['1. open'];
 
-// https://www.quandl.com/api/v3/datatables/WIKI/PRICES.json?date.gte=19900101&date.lt=20170601&ticker=MSFT&qopts.columns=date,close&api_key=YiNzVQcDRbgWz1L_khwj
+
+
+// https://www.quandl.com/api/v3/datatables/WIKI/PRICES.json?date.gte=19900101&date.lt=20170601&ticker=MSFT&qopts.columns=date,close,high&api_key=YiNzVQcDRbgWz1L_khwj
 // https://www.quandl.com/api/v3/datatables/WIKI/PRICES.json?date.gte=19900102&date.lt=19900103&ticker=MSFT&qopts.columns=date,close&api_key=YiNzVQcDRbgWz1L_khwj
 // https://www.quandl.com/api/v3/datatables/WIKI/PRICES.json?ticker=MSFT&qopts.columns=date,close&api_key=YiNzVQcDRbgWz1L_khwj
+
+"https://www.quandl.com/api/v3/datasets/WIKI/MSFT.json?&column_index=7&api_key=YiNzVQcDRbgWz1L_khwj"
+// splits https://www.quandl.com/api/v3/datasets/WIKI/MSFT.json?&column_index=7&api_key=YiNzVQcDRbgWz1L_khwj
+// "https://www.quandl.com/api/v3/datasets/WIKI/"+$userInputDict['tickerName']+".json?column_index=4&"+$userInputDict['startDate']+"&"+$userInputDict['endDate']+'&collapse=monthly&&api_key=YiNzVQcDRbgWz1L_khwj';
+84.142857142857
+
+0.10
