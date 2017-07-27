@@ -16,9 +16,8 @@ var $dataKeyNameArr = [ ['tickerName', $tickerName],
                         ['startDate', $startDate],
                         ['endDate', $endDate],
                         ];
-var $userInputArr = [];
-var $userInputDict= {};
-var $completeURL;
+
+
 var $searchDataDict = {};
 var $splitDataArr;
 
@@ -49,11 +48,11 @@ $form.on('submit', function (event){
     dataDict($dataKeyNameArr);
     // // sendDataToServer($userInputDict);
     // localStorage.setItem("order", $dataKeyNameArr);
-    arrMaker($dataKeyNameArr);
+    
     // appendOrderToHTML($userInputDict);
     // getOrdersFromAPI();
-    setUrl($userInputDict);
-    getData($completeURL);
+    setUrl();
+    
     
 });
 function getData(URL){
@@ -61,11 +60,9 @@ function getData(URL){
     x.then( function (data){
         $searchDataDict = data;
         getSplitData();
-        unAdjustforSplit();
         console.log(data);
         console.log(getCloseStartData($startDate.val()));
         console.log(getCloseEndData($endDate.val()));
-
         });   
 }
 
@@ -75,30 +72,26 @@ function getData(URL){
         
 //     }
 // }
-function arrMaker(arr){
-    for (var i= 0; i<arr.length; i++){
-        $userInputArr.push(arr[i][0], arr[i][1].val());
-    } 
-    return $userInputArr;
-}
+
 function setUrl(arr){
     // var completeURL= $URL+'date.gte='+$userInputDict['startDate']+"&date.lte="+$userInputDict['endDate']+"&ticker="+$userInputDict['tickerName']+"&qopts.columns=date,close&api_key=YiNzVQcDRbgWz1L_khwj";
-    var completeURL = "https://www.quandl.com/api/v3/datasets/WIKI/"+$userInputDict['tickerName']+".json?column_index=4&start_date="+$userInputDict['startDate']+"&end_date="+$userInputDict['endDate']+'&api_key=YiNzVQcDRbgWz1L_khwj';
-    $completeURL = completeURL;
-    return $completeURL;
+    var completeURL = "https://www.quandl.com/api/v3/datasets/WIKI/"+dataDict($dataKeyNameArr)['tickerName']+".json?column_index=4&start_date="+dataDict($dataKeyNameArr)['startDate']+"&end_date="+dataDict($dataKeyNameArr)['endDate']+'&api_key=YiNzVQcDRbgWz1L_khwj';
+    getData(completeURL);
 }
 function dataDict(arr){
+    var userInputDict ={};
     for (var i = 0; i< arr.length; i++){
-        $userInputDict[arr[i][0]] = arr[i][1].val();
+        userInputDict[arr[i][0]] = arr[i][1].val();
     }
+    return userInputDict;
 }
 function getSplitData(){
-var URL = "https://www.quandl.com/api/v3/datasets/WIKI/"+$userInputDict['tickerName']+".json?column_index=7&start_date="+$userInputDict['startDate']+"&end_date="+$userInputDict['endDate']+'&api_key=YiNzVQcDRbgWz1L_khwj';
+var URL = "https://www.quandl.com/api/v3/datasets/WIKI/"+dataDict($dataKeyNameArr)['tickerName']+".json?column_index=7&start_date="+dataDict($dataKeyNameArr)['startDate']+"&end_date="+dataDict($dataKeyNameArr)['endDate']+'&api_key=YiNzVQcDRbgWz1L_khwj';
     var x = $.get(URL);
     x.then( function (data){
         $splitDataArr= data;
         console.log(data);
-        // unAdjustforSplit();
+        
         // splitCounter()
         // setTimeout(unAdjustforSplit(),3000);
     });
@@ -133,12 +126,10 @@ function unAdjustforSplit(){
         return a / b;
     });
     return adjustedStartPrice;
+    console.log(adjustedStartPrice);
 }
 
 // HH - hitting submit will run function getData. This will populate the $searchDataDict var
-// to search through dict -  $searchDataDict["datatable"]['data'][0][1] for the first day
-// this will get you the last day var x = $searchDataDict.datatable.data.length
-//$searchDataDict["datatable"]['data'][x-1][1]; this is the last day
 
 
 
@@ -150,6 +141,3 @@ function unAdjustforSplit(){
 "https://www.quandl.com/api/v3/datasets/WIKI/MSFT.json?&column_index=7&api_key=YiNzVQcDRbgWz1L_khwj"
 // splits https://www.quandl.com/api/v3/datasets/WIKI/MSFT.json?&column_index=7&api_key=YiNzVQcDRbgWz1L_khwj
 // "https://www.quandl.com/api/v3/datasets/WIKI/"+$userInputDict['tickerName']+".json?column_index=4&"+$userInputDict['startDate']+"&"+$userInputDict['endDate']+'&collapse=monthly&&api_key=YiNzVQcDRbgWz1L_khwj';
-84.142857142857
-
-0.10
