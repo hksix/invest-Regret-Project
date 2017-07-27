@@ -72,3 +72,14 @@ function getServerData(){
 // to search through dict -  $searchDataDict["Monthly Time Series"]['2000-02-29']
 
 // Object {1. open: "98.5000", 2. high: "110.0000", 3. low: "88.1200", 4. close: "89.3700", 5. volume: "1334487600"}
+
+	// $(document).ready(function(){
+	// 	var date_input=$('input[name="date"]'); //our date input has the name "date"
+	// 	var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+	// 	date_input.datepicker({
+	// 		format: 'mm/dd/yyyy',
+	// 		container: container,
+	// 		todayHighlight: true,
+	// 		autoclose: true,
+	// 	})
+	// })

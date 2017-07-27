@@ -7,43 +7,85 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--JH This is the information for the date picker.-->
+    <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/> -->
+    <link rel="stylesheet" href="styles/main.css">
     <title>Invest Regret Project</title>
 </head>
 <body>
-    <form data-stock-order="form">
-            <div class="form-group">
-              <label for="ticker">ticker name</label>
-              <input class="form-control" name="ticker" id="tickerName" data-role="ticker-name" autofocus>
+    <form data-stock-order="form"> <!--JH  This is serving as a wrapper for the HTML-->
+        
+        <header> <!--JH  This adds the hamburger menu. I styled it from:
+        https://v4-alpha.getbootstrap.com/components/navbar/-->
+            <div class="pos-f-t">
+                <div class="collapse" id="navbarToggleExternalContent">
+                    <div class="bg-inverse p-4">
+                    <h4 class="text-white">INVEST REGRET</h4>
+                    <span class="text-muted">Lorem ipsum dolor sit amet.</span>
+                    </div>
+                </div>
+                <nav class="navbar navbar-inverse bg-inverse">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                </nav>
+            </div>            
+            
+            
+        <!--JH  This was a place holder for the menu. We can get rid of this code if you guys like
+        this idea.-->
+            <!--<div class="container">
+                <div class="row">
+                </div>
+            </div>-->
+        
+        </header>
+         
+        <div class="hero"> <!--JH  This wraps everything to insert a Hero image for background.-->
+            <div class="container-fluid">
+                <div class="form-group">
+                    <label for="ticker">Enter Ticker Name</label> <!--JH  I changed this from tickerName. We can change it to something better later-->
+                    <input class="form-control" name="ticker" id="tickerName" data-role="ticker-name" autofocus>
+                </div>
             </div>
-            <!-- <form data-coffee-order="form">
-            <div class="form-group">
-              <label for="coffeeOrder">Coffee Order</label>
-              <input class="form-control" name="coffee" id="coffeeOrder" data-role="order" autofocus>
-            </div> -->
-            <div class="form-group">
-              <label for="timeInterval">timeInterval</label>
-              <select id="timeInterval" class="form-control" name="time" data-role="time-interval">
-                <option value="">None</option>
-                <option value="TIME_SERIES_DAILY">Daily</option>
-                <option value="TIME_SERIES_WEEKLY">Weekly</option>
-                <option value="TIME_SERIES_MONTHLY">Monthly</option>
-              </select>
-            </div>
-            <button type="submit" class="btn btn-default">Submit</button>
-            <button type="reset" class="btn btn-default">Reset</button>
+            
 
             <div class="container">
-    <div class="col-sm-6" style="height:130px;">
-        <div class="form-group">
-            <div class='input-group date' id='datetimepicker9'>
-                <input type='text' class="form-control" />
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar">
-                    </span>
-                </span>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                        <label for="timeInterval">Enter Time Interval</label> <!--JH  I changed this from timeInterval. We can change it to something better later-->
+                        <select id="timeInterval" class="form-control" name="time" data-role="time-interval">
+                            <option value="">None</option>
+                            <option value="TIME_SERIES_DAILY">Daily</option>
+                            <option value="TIME_SERIES_WEEKLY">Weekly</option>
+                            <option value="TIME_SERIES_MONTHLY">Monthly</option>
+                        
+                        </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        
+
+            <div class="button"> <!--This lets me style padding at the bottom of the buttons-->
+                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="reset" class="btn btn-default">Reset</button>
             </div>
         </div>
-    </div>
+
+        <div class="bottom">
+            <div class="container">
+                <div class="row">
+                </div>
+            </container>
+        </div>
+
+    </form> <!--JH I added this since I couldn't find a closing tag for it anywhere.-->
+
+<!--JH  What does this do?-->
     <!-- <script type="text/javascript">
         $(function () {
             $('#datetimepicker9').datetimepicker({
@@ -51,14 +93,61 @@
             });
         });
     </script> -->
-</div>
+
+</div> <!--JH  Where is this coming from?-->
 
 
 
     <script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+    </script>
+
     <script src="main.js" charset="utf-8"></script>
+
 </body>
 </html>
+
+
+
+
+
+
+<!--JH   This is the information for the date picker. I dropped it down here becuase 
+it's a bunch if ugly code and it's not doing anything right now.-->
+        <!--<div class="bootstrap-iso">
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col-md-6 col-sm-6 col-xs-12">
+        <form action="https://formden.com/post/MlKtmY4x/" class="form-horizontal" method="post">
+        <div class="form-group ">
+        <label class="control-label col-sm-2 requiredField" for="date">
+        Date
+        <span class="asteriskField">
+            *
+        </span>
+        </label>
+        <div class="col-sm-10">
+        <div class="input-group">
+            <div class="input-group-addon">
+            <i class="fa fa-calendar">
+            </i>
+            </div>
+            <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
+        </div>
+        </div>
+        </div>
+        <div class="form-group">
+        <div class="col-sm-10 col-sm-offset-2">
+        <input name="_honey" style="display:none" type="text"/>
+        <button class="btn btn-primary " name="submit" type="submit">
+            Submit
+        </button>
+        </div>
+        </div>
+        </form>
+    </div>
+    </div>
+    </div>
+    </div>-->

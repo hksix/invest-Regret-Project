@@ -1,0 +1,39 @@
+/*Hero image placeholder. There's a weird white gap between the navbar and the Ticker;
+not sure why. Doesn't really matter if we leave it white.*/
+.hero{
+    /*background-color: purple;*/
+    margin-top: 10px;
+    text-align: center;
+}
+
+.button{
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+/*JH  This adds another element at the bottom. Maybe we could add the chart here.
+The white space at the bottom is because I hard coded the height. We should probably
+change that.*/
+.bottom{ 
+    height: 300px;
+    background-color: grey; 
+    text-align: center; 
+}
+
+/*JH  This resizes the search bars. Anything under a 260 pixel width starts to look weird.
+The min design width is typically 300px, so I'm thinking we're good. The search bars
+continue to get bigger so let's look at everything and figure out what we want to do 
+with the breaks. */
+.form-group{
+    margin-right: 100px;
+    margin-left: 100px;
+    text-align: center;
+}
+
+.text-muted{
+    font-style: italic;
+}
+
+/**{ 
+    border: 1px solid red;
+}*/
