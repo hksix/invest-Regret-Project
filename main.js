@@ -21,12 +21,6 @@ var $dataKeyNameArr = [ ['tickerName', $tickerName],
 var $searchDataDict = {};
 var $splitDataArr;
 
-// HH - example url https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=1min&apikey=5X4II9G2P5S3BJ05
-
-// HH - timeInterval choices = ['function=TIME_SERIES_INTRADAY', 'function=TIME_SERIES_DAILY', 'function=TIME_SERIES_WEEKLY', 'function=TIME_SERIES_MONTHLY'];
-// HH - ticker example for URL = "symbol=MSFT";
-
-
 
 $(document).ready(function() {
     var date = new Date();
@@ -44,17 +38,10 @@ $(document).ready(function() {
 
 $form.on('submit', function (event){
     event.preventDefault();
-    // setItemToLocal($dataKeyNameArr);
     dataDict($dataKeyNameArr);
-    // // sendDataToServer($userInputDict);
-    // localStorage.setItem("order", $dataKeyNameArr);
-    
-    // appendOrderToHTML($userInputDict);
-    // getOrdersFromAPI();
     setUrl();
-    
-    
 });
+
 function getData(URL){
     var x = $.get(URL);
     x.then( function (data){
@@ -74,10 +61,10 @@ function getData(URL){
 // }
 
 function setUrl(arr){
-    // var completeURL= $URL+'date.gte='+$userInputDict['startDate']+"&date.lte="+$userInputDict['endDate']+"&ticker="+$userInputDict['tickerName']+"&qopts.columns=date,close&api_key=YiNzVQcDRbgWz1L_khwj";
     var completeURL = "https://www.quandl.com/api/v3/datasets/WIKI/"+dataDict($dataKeyNameArr)['tickerName']+".json?column_index=4&start_date="+dataDict($dataKeyNameArr)['startDate']+"&end_date="+dataDict($dataKeyNameArr)['endDate']+'&api_key=YiNzVQcDRbgWz1L_khwj';
     getData(completeURL);
 }
+
 function dataDict(arr){
     var userInputDict ={};
     for (var i = 0; i< arr.length; i++){
@@ -85,18 +72,20 @@ function dataDict(arr){
     }
     return userInputDict;
 }
+
 function getSplitData(){
 var URL = "https://www.quandl.com/api/v3/datasets/WIKI/"+dataDict($dataKeyNameArr)['tickerName']+".json?column_index=7&start_date="+dataDict($dataKeyNameArr)['startDate']+"&end_date="+dataDict($dataKeyNameArr)['endDate']+'&api_key=YiNzVQcDRbgWz1L_khwj';
     var x = $.get(URL);
     x.then( function (data){
         $splitDataArr= data;
+        unAdjustforSplit();
         console.log(data);
         
         // splitCounter()
         // setTimeout(unAdjustforSplit(),3000);
     });
     
-    }
+}
 
 function getCloseStartData(){
      var x = $searchDataDict.dataset.data.length;
@@ -109,18 +98,16 @@ function splitCounter(){
     var splitCount=[];
     for (var i = 0; i<$splitDataArr["dataset"]["data"].length;i++){
         if($splitDataArr["dataset"]["data"][i][1] > 1 ){
-            // console.log($splitDataArr["dataset"]["data"][i][1]);
             splitCount.push($splitDataArr["dataset"]["data"][i][1]);
         }
     }
     return splitCount;
     
-    
 }
 function unAdjustforSplit(){
-    var splitarr = splitCounter();
+    // var splitarr = splitCounter();
     var startPrice = getCloseStartData();
-    var combine = splitarr;
+    var combine = splitCounter();
     combine.unshift(startPrice);
     var adjustedStartPrice = combine.reduce(function (a,b){
         return a / b;
@@ -129,7 +116,6 @@ function unAdjustforSplit(){
     console.log(adjustedStartPrice);
 }
 
-// HH - hitting submit will run function getData. This will populate the $searchDataDict var
 
 
 
