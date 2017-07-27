@@ -4,8 +4,14 @@ var URL = "https://www.alphavantage.co/query?"
 var $form = $('[data-stock-order="form"]');
 var $tickerName = $('[data-role="ticker-name"]');
 var $timeInterval = $('[data-role="time-interval"]');
+var $amountInvested = $('[data-role="amount-invested"]');
+var $startDate = $('[data-role="start-date"]');
+var $endDate = $('[data-role="end-date"]');
 var $dataKeyNameArr = [ ['tickerName', $tickerName], 
                         ['timeInterval' , $timeInterval],
+                        ['amountInvested' , $amountInvested],
+                        ['startDate', $startDate],
+                        ['endDate', $endDate],
                         ];
 var $userInputArr = [];
 var $userInputDict= {};
