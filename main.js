@@ -116,7 +116,9 @@ function unAdjustforSplit(){
     console.log(adjustedStartPrice);
 }
 
-(dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit()) *(getCloseEndData()); 
+function hindsightAmount(){
+    return(dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit()) *(getCloseEndData()); 
+}
 
 
 
