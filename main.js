@@ -156,3 +156,4 @@ function getCryptoInfo(data){
 // https://www.cryptocompare.com/api/data/coinsnapshotfullbyid/?id=7605%tsyms=USD//for ETH
 // https://www.cryptocompare.com/api/data/coinsnapshotfullbyid/?id=1182 //for BTC
 // https://www.cryptocompare.com/api/data/coinsnapshot/?fsym=ETH&tsym=USD
+// this is the latest JS
