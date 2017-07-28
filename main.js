@@ -116,7 +116,7 @@ function unAdjustforSplit(){
     console.log(adjustedStartPrice);
 }
 
-
+(dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit()) *(getCloseEndData()); 
 
 
 
