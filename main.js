@@ -68,20 +68,27 @@ function dataDict(arr){
 
 function getSplitData(){
 var URL = "https://www.quandl.com/api/v3/datasets/WIKI/"+dataDict($dataKeyNameArr)['tickerName']+".json?column_index=7&start_date="+dataDict($dataKeyNameArr)['startDate']+"&end_date="+dataDict($dataKeyNameArr)['endDate']+'&api_key=YiNzVQcDRbgWz1L_khwj';
-    var x = $.get(URL)
-    x.then( function (data){
+    return $.get(URL)
+        .then( function (data){
         $splitDataArr= data;
         unAdjustforSplit();
-        
-        console.log(data);
-         
+        hindsightAmount();
+        // console.log(data);
+        return data;
         
         // splitCounter()
         // setTimeout(unAdjustforSplit(),3000);
     });
     
 }
-
+// fucntion getFormatedData(URL){
+//     return $.get(URL);
+//         .then( function  (data){
+//             return data.filter(blahdahd)
+//         })
+// }
+// getFormatedData(dad)
+//     .then
 function getCloseStartData(){
      var x = $searchDataDict.dataset.data.length;
      return $searchDataDict["dataset"]['data'][x-1][1];
@@ -96,7 +103,7 @@ function splitCounter(){
             splitCount.push($splitDataArr["dataset"]["data"][i][1]);
         }
     }
-    console.log(splitCount);
+    // console.log(splitCount);
     return splitCount;
     
 }
@@ -108,12 +115,15 @@ function unAdjustforSplit(){
     var adjustedStartPrice = combine.reduce(function (a,b){
         return a / b;
     });
+    // console.log('unadjusted start Price' + adjustedStartPrice);
     return adjustedStartPrice;
-    console.log(adjustedStartPrice);
+    
 }
 
 function hindsightAmount(){
+    console.log((dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit()) *(getCloseEndData()));
     return(dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit()) *(getCloseEndData()); 
+    
 }
 
 // ------------------------------------------------------------------------
