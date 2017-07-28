@@ -1,42 +1,68 @@
-/*Hero image placeholder. There's a weird white gap between the navbar and the Ticker;
-not sure why. Doesn't really matter if we leave it white.*/
-.hero{
-    /*background-color: purple;*/
-    margin-top: 10px;
+header{
+    height: 300px;
+    background-color: #FAA614;
+}
+
+a{
+    font-weight: 700;
+    color: #FC4A1A;
+    float: right;
+    /*margin-left: 50%;*/
+    font-size: 20px;
+    display: inline;
+    margin: 10px;
+
+}
+
+
+h1{
+    font-weight: 800;
+    color: white;
     text-align: center;
+    font-size: 80px;
+    background-color: #FAA614;
 }
 
-.button{
-    padding-bottom: 20px;
+.one{
+    background-color: #FAA614;
+    height: 673px;
     text-align: center;
+
 }
 
-/*JH  This adds another element at the bottom. Maybe we could add the chart here.
-The white space at the bottom is because I hard coded the height. We should probably
-change that.*/
-.bottom{ 
-    border-top: 1px solid black;
-    text-align: center; 
+.two{
+    background-color: #4ABDAC;
+    height: 673px;
 }
 
-/*JH  This resizes the search bars. Anything under a 260 pixel width starts to look weird.
-The min design width is typically 300px, so I'm thinking we're good. The search bars
-continue to get bigger so let's look at everything and figure out what we want to do 
-with the breaks. */
-.form-group{
-    margin-right: 100px;
-    margin-left: 100px;
-    text-align: center;
+.three{
+    background-color: #2461BF;
+    height: 673px;
 }
 
-.text-muted{
-    font-style: italic;
+.four{
+    background-color: #4D20A4;
+    height: 673px;
 }
 
+.five{
+    background-color: #DFDCE3;
+    height: 673px;
+}
 
+.btn {
+    background-color: #FC4A1A;
+    color: white;
+    font-weight: 800;
+    border-radius: 25px;
+    padding: 15px;
+    
+}
 
-
-/**{ 
-    border: 1px solid red;
-}*/
-
+p{
+    font-weight: 800;
+    color: white;
+    padding-left: 200px;
+    padding-right: 200px;
+    margin-top: 25px;
+}
