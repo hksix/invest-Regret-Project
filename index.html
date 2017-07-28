@@ -14,7 +14,7 @@
     <form data-stock-order="form">
             <div class="form-group">
               <label for="ticker">ticker name</label>
-              <input class="form-control" name="ticker" id="tickerName" data-role="ticker-name" autofocus>
+              <input class="form-control" name="ticker" id="tickerName" data-role="ticker-name" autofocus required>
             </div>
 
             <!-- <div class="form-group">
@@ -26,7 +26,7 @@
                 <option value="TIME_SERIES_MONTHLY">Monthly</option>
               </select>
             </div> -->
-            
+            <hr />
 
             <form class="form-horizontal">
             <div class="form-group">
@@ -43,10 +43,24 @@
                 <input type="date" class="form-control" id="inputDate2" placeholder="Date" data-role="end-date">
               </div>
             </div>
+            <hr />
             <div class="form-group">
-              <label for="amount-invested">Amount</label>
-              <input class="form-control" name="amount" id="amount-invested" data-role="amount-invested">
+                <label for="amount-invested c2">Amount</label>
+                <div class="input-group"> 
+                    <span class="input-group-addon">$</span> 
+                    <input type="number" class="form-control currency" name="amount" id="amount-invested c2" data-role="amount-invested" required>
+                </div>
             </div>
+
+
+             <!-- <div class="form-row">
+            <label for="c2">Currency w bootstrap</label>
+        <div class="input-group"> 
+        <span class="input-group-addon">$</span>
+        <input type="number" value="1000" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" id="c2" />
+    </div>   -->
+
+
 
             <button type="submit" class="btn btn-default">Submit</button>
             <button type="reset" class="btn btn-default">Reset</button>

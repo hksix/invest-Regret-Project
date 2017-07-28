@@ -101,6 +101,7 @@ function splitCounter(){
             splitCount.push($splitDataArr["dataset"]["data"][i][1]);
         }
     }
+    console.log(splitCount);
     return splitCount;
     
 }
