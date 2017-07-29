@@ -7,97 +7,175 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!--JH This is the information for the date picker.-->
-    <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/> -->
+    <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
     <title>Invest Regret Project</title>
 </head>
 <body>
-    <form data-stock-order="form"> <!--JH  This is serving as a wrapper for the HTML-->
-        
-        <header> <!--JH  This adds the hamburger menu. I styled it from:
-        https://v4-alpha.getbootstrap.com/components/navbar/-->
-            <div class="pos-f-t">
-                <div class="collapse" id="navbarToggleExternalContent">
-                    <div class="bg-inverse p-4">
-                    <h4 class="text-white">INVEST REGRET</h4>
-                    <span class="text-muted">Lorem ipsum dolor sit amet.</span>
-                    </div>
-                </div>
-                <nav class="navbar navbar-inverse bg-inverse">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                    </button>
-                </nav>
-            </div>            
-            
-            
-        <!--JH  This was a place holder for the menu. We can get rid of this code if you guys like
-        this idea.-->
-            <!--<div class="container">
-                <div class="row">
-                </div>
-            </div>-->
-        
-        </header>
-         
-        <div class="hero"> <!--JH  This wraps everything to insert a Hero image for background.-->
-            <div class="container-fluid">
-                <div class="form-group">
-                    <label for="ticker">Enter Ticker Name</label> <!--JH  I changed this from tickerName. We can change it to something better later-->
-                    <input class="form-control" name="ticker" id="tickerName" data-role="ticker-name" autofocus>
-                </div>
+    
+    <header>
+        <div class="container">
+            <div class="row">
+                <a href>CONTACT</a>
+                <a href>THINKING</a>
+                <a href>US</a>
+                <a href>WORK</a>
+                <!--<h3>INVESTREGRET.</h3>-->
             </div>
-            
+        </div>
+    </header>
 
+    <div class="one">
+        <div class="container">
+            <div class="row">
+                <h1>Let's look up some prices.</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut facilis mollitia doloremque, quos autem quo aliquam voluptatum laudantium, nobis repudiandae eius nostrum! Nemo, doloribus, libero. Iste ab maiores perferendis dignissimos.</p>
+                        <button type="button" class="btn btn-primary btn-lg">SUBMIT</button>
+                    
+            </div>
+        </div>
+    </div>
+    
+    <div class="two">
+        <div class="container">
+                <div class="row"> 
+                </div>
+        </div>
+    </div>
+
+    <div class="three">
+        <h2>NASDAQ</h2>
+        <form data-stock-order="form">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-sm-3">
                         <div class="form-group">
-                        <label for="timeInterval">Enter Time Interval</label> <!--JH  I changed this from timeInterval. We can change it to something better later-->
-                        <select id="timeInterval" class="form-control" name="time" data-role="time-interval">
-                            <option value="">None</option>
-                            <option value="TIME_SERIES_DAILY">Daily</option>
-                            <option value="TIME_SERIES_WEEKLY">Weekly</option>
-                            <option value="TIME_SERIES_MONTHLY">Monthly</option>
-                        
-                        </select>
+                            <label for="ticker" class="col-sm-3 control-label">TICKER NAME</label>
+                            <input class="form-control" name="ticker" id="tickerName" data-role="ticker-name" autofocus required>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="inputDate1" class="col-sm-3 control-label">START DATE</label>
+                                <input type="date" class="form-control" id="inputDate1" placeholder="Date" data-role="start-date">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="inputDate2" class="col-sm-3 control-label" >END DATE</label>
+                                <input type="date" class="form-control" id="inputDate2" placeholder="Date" data-role="end-date">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="form-group">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label for="amount-invested c2">AMOUNT</label>
+                            <div class="input-group"> 
+                                <span class="input-group-addon">$</span> 
+                                <input type="number" class="form-control currency" name="amount" id="amount-invested c2" data-role="amount-invested" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="third-button">
+                        <button type="submit" class="btn btn-default">GO</button>
+                        <!--<button type="reset" class="btn btn-default">Reset</button>-->
+                    </div>
+                </div>
+            </div>    
+        </form>
+    </div>
         
 
-            <div class="button"> <!--This lets me style padding at the bottom of the buttons-->
-                <button type="submit" class="btn btn-default">Submit</button>
-                <button type="reset" class="btn btn-default">Reset</button>
-            </div>
-        </div>
-
-        <div class="bottom">
+    <div class="four">
+        <h2>CRYPTO</h2>
+        <form data-stock-order="form">
             <div class="container">
                 <div class="row">
+                    <div class="col-sm-3 col-sm-3">
+                        <div class="form-group">
+                            <label for="ticker" class="col-sm-3 control-label">TICKER NAME</label>
+                            <input class="form-control" name="ticker" id="tickerName" data-role="ticker-name" autofocus required>
+                        </div>
+                    </div>
                 </div>
-            </container>
+            </div>
+
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="inputDate1" class="col-sm-3 control-label">START DATE</label>
+                                <input type="date" class="form-control" id="inputDate1" placeholder="Date" data-role="start-date">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="inputDate2" class="col-sm-3 control-label" >END DATE</label>
+                                <input type="date" class="form-control" id="inputDate2" placeholder="Date" data-role="end-date">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="form-group">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label for="amount-invested c2">Amount</label>
+                            <div class="input-group"> 
+                                <span class="input-group-addon">$</span> 
+                                <input type="number" class="form-control currency" name="amount" id="amount-invested c2" data-role="amount-invested" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="fourth-button">
+                        <button type="submit" class="btn btn-default">GO</button>
+                        <!--<button type="reset" class="btn btn-default">Reset</button>-->
+                    </div>
+                </div>
+            </div>    
+        </form>
+    </div>
+
+    <div class="five">
+        <div class="container">
+                <div class="row"> 
+                </div>
         </div>
-
-    </form> <!--JH I added this since I couldn't find a closing tag for it anywhere.-->
-
-<!--JH  What does this do?-->
-    <!-- <script type="text/javascript">
-        $(function () {
-            $('#datetimepicker9').datetimepicker({
-                viewMode: 'years'
-            });
-        });
-    </script> -->
-
-</div> <!--JH  Where is this coming from?-->
-
-
-
+    </div>
+        
+    
     <script
         src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -106,48 +184,7 @@
 
     <script src="main.js" charset="utf-8"></script>
 
+
 </body>
 </html>
 
-
-
-
-
-
-<!--JH   This is the information for the date picker. I dropped it down here becuase 
-it's a bunch if ugly code and it's not doing anything right now.-->
-        <!--<div class="bootstrap-iso">
-    <div class="container-fluid">
-    <div class="row">
-    <div class="col-md-6 col-sm-6 col-xs-12">
-        <form action="https://formden.com/post/MlKtmY4x/" class="form-horizontal" method="post">
-        <div class="form-group ">
-        <label class="control-label col-sm-2 requiredField" for="date">
-        Date
-        <span class="asteriskField">
-            *
-        </span>
-        </label>
-        <div class="col-sm-10">
-        <div class="input-group">
-            <div class="input-group-addon">
-            <i class="fa fa-calendar">
-            </i>
-            </div>
-            <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
-        </div>
-        </div>
-        </div>
-        <div class="form-group">
-        <div class="col-sm-10 col-sm-offset-2">
-        <input name="_honey" style="display:none" type="text"/>
-        <button class="btn btn-primary " name="submit" type="submit">
-            Submit
-        </button>
-        </div>
-        </div>
-        </form>
-    </div>
-    </div>
-    </div>
-    </div>-->
