@@ -73,6 +73,7 @@ var URL = "https://www.quandl.com/api/v3/datasets/WIKI/"+dataDict($dataKeyNameAr
         $splitDataArr= data;
         unAdjustforSplit();
         hindsightAmount();
+        getGraphData();
         // console.log(data);
         return data;
         
@@ -153,17 +154,62 @@ function getCryptoInfo(data){
 }
 
 
-// https://www.quandl.com/api/v3/datatables/WIKI/PRICES.json?date.gte=19900101&date.lt=20170601&ticker=MSFT&qopts.columns=date,close,high&api_key=YiNzVQcDRbgWz1L_khwj
-// https://www.quandl.com/api/v3/datatables/WIKI/PRICES.json?date.gte=19900102&date.lt=19900103&ticker=MSFT&qopts.columns=date,close&api_key=YiNzVQcDRbgWz1L_khwj
-// https://www.quandl.com/api/v3/datatables/WIKI/PRICES.json?ticker=MSFT&qopts.columns=date,close&api_key=YiNzVQcDRbgWz1L_khwj
+
 
 "https://www.quandl.com/api/v3/datasets/WIKI/MSFT.json?&column_index=7&api_key=YiNzVQcDRbgWz1L_khwj"
 // splits https://www.quandl.com/api/v3/datasets/WIKI/MSFT.json?&column_index=7&api_key=YiNzVQcDRbgWz1L_khwj
 // "https://www.quandl.com/api/v3/datasets/WIKI/"+$userInputDict['tickerName']+".json?column_index=4&"+$userInputDict['startDate']+"&"+$userInputDict['endDate']+'&collapse=monthly&&api_key=YiNzVQcDRbgWz1L_khwj';
-
+// https://www.quandl.com/api/v3/datasets/WIKI/MSFT.json?&collapse=annual&column_index=4&api_key=YiNzVQcDRbgWz1L_khwj
 
 // https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD gets current price - returns {"USD":195.32}
 // https://www.cryptocompare.com/api/data/coinsnapshotfullbyid/?id=7605%tsyms=USD//for ETH
 // https://www.cryptocompare.com/api/data/coinsnapshotfullbyid/?id=1182 //for BTC
 // https://www.cryptocompare.com/api/data/coinsnapshot/?fsym=ETH&tsym=USD
 // this is the latest JS
+
+function getGraphData(){
+    var temp=[];
+    var URL = 'https://www.quandl.com/api/v3/datasets/WIKI/'+dataDict($dataKeyNameArr)['tickerName']+'?&collapse=annual&column_index=4&api_key=YiNzVQcDRbgWz1L_khwj';
+    $.get(URL)
+        .then(function(data) {
+            temp = data;
+            getDataPlots(data)
+            });
+        
+}       
+function getDataPlots(list){
+    var endYear = dataDict($dataKeyNameArr)['endDate'];
+    var endOfXAxis = endYear.slice(0,4);
+    var xlength = $searchDataDict.dataset.data.length;
+    var startyear = $searchDataDict["dataset"]['data'][xlength-1][0];
+    var startofXAxis = Number(startyear.slice(0,4));
+    var x = [];
+    for(var i = startofXAxis; i<=endOfXAxis; i++){
+        x.push(i);
+    }
+    console.log(x);
+    var y= [];
+
+    list['dataset']['data'].forEach(function (month){
+    y.push(month[1]);
+
+    });
+ 
+    makeGraph(x,y.reverse());
+}
+function makeGraph(x,y){
+var largest = Math.max.apply(null, y);
+    var options = {
+        high: Number(largest),
+    };
+    var data = {
+      // A labels array that can contain any sort of values
+    //   labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+    labels: x,
+      // Our series array that contains series objects or in this case series data arrays
+      series: [
+        y
+      ]
+    };
+    new Chartist.Line('.ct-chart', data,options );
+}
