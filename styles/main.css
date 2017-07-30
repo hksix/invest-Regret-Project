@@ -57,6 +57,7 @@ h1{
 }
 
 /*Third box.*/
+/*hk start  */
 .three{
     background-color: #2461BF;
     height: auto;
@@ -137,7 +138,7 @@ h1{
 	top : 50%;
 	transform : translateY(-50%);
 }
-
+/*HK -end  */
 
 
 /* Fourth box. */
