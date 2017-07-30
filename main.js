@@ -127,8 +127,10 @@ function unAdjustforSplit(){
 }
 
 function hindsightAmount(){
-    
-    console.log((dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit()) *(getCloseEndData()));
+    var worth = (dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit()) *(getCloseEndData());
+    worth = Number(worth.toFixed(2));
+    $('#net-worth-circle-text').text("$"+worth);
+    // console.log((dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit()) *(getCloseEndData()));
     return(dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit()) *(getCloseEndData()); 
     
 }
