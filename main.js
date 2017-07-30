@@ -100,6 +100,7 @@ function getCloseStartData(){
      return $searchDataDict["dataset"]['data'][x-1][1];
 }
 function getCloseEndData(){
+    $('#current-price-box').text("Current Price: "+"$"+ $searchDataDict["dataset"]["data"][0][1])
      return $searchDataDict["dataset"]["data"][0][1];
 }
 function splitCounter(){
@@ -109,7 +110,8 @@ function splitCounter(){
             splitCount.push($splitDataArr["dataset"]["data"][i][1]);
         }
     }
-    console.log(splitCount);
+    $('#split-share-box').text(dataDict($dataKeyNameArr)['tickerName'] +" has split " +splitCount.length + " times since you bought in.");
+
     return splitCount;
     
 }
@@ -127,8 +129,10 @@ function unAdjustforSplit(){
 }
 
 function hindsightAmount(){
-    
-    console.log((dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit()) *(getCloseEndData()));
+    var worth = (dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit()) *(getCloseEndData());
+    worth = Number(worth.toFixed(2));
+    $('#net-worth-circle-text').text("$"+worth);
+    // console.log((dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit()) *(getCloseEndData()));
     return(dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit()) *(getCloseEndData()); 
     
 }
