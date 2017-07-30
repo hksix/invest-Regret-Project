@@ -68,6 +68,16 @@ h1{
     border: 3px solid black;
     
 }
+#image-pg3{
+    display: flex;
+    justify-content: center;
+    /* align-content: center; */
+}
+#money-bags{
+    /* clear: both; */
+    height: 60%;
+    width: 60%;
+}
 
 /*Fourth box.*/
 .four{

@@ -50,36 +50,43 @@
         <h2>NASDAQ</h2>
         <form data-stock-order="form1">
             <div class="container">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <div class="form-group">
-                            <label for="ticker" class="col-sm-3 control-label">TICKER NAME</label>
-                            <input class="form-control" name="ticker" id="tickerName" data-role="ticker-name" required>
+                <div class="row" id="3pgcontiner3">
+                    <div class="col-md-4">  
+                        <div class="row"id="tickername-start-end">
+                            <div class="col-sm-10">
+                                <div class="form-group">  
+                                    <label for="ticker" class="col-sm-3 control-label">TICKER NAME</label>
+                                    <input class="form-control" name="ticker" id="tickerName" data-role="ticker-name" required>
+                                </div>  
+                            </div>    
+                            <div class="col-sm-10">
+                                <div class="form-group">
+                                    <label for="inputDate1" class="col-sm-3 control-label">START DATE</label>
+                                    <input type="date" class="form-control" id="inputDate1" placeholder="Date" data-role="start-date">
+                                </div>
+                            </div>
+                            <div class='col-sm-10'> 
+                                <div class="form-group">
+                                    <label for="inputDate2" class="col-sm-3 control-label" >END DATE</label>
+                                    <input type="date" class="form-control" id="inputDate2" placeholder="Date" data-role="end-date">
+                                </div> 
+                            </div>
                         </div>
+                    </div>
+                    
+                    <div class="col-md-4" id="image-pg3">
+                        <img src='/Users/hamzahaseeb/DigitalCrafts-06-2017/JavaScript101/invest Regret Project/money-bag.svg' id="money-bags">
+
+                    </div>
+                    <div class="col-md-4">
+                        <svg height="100" width="100">
+                            <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3"/>
+                        </svg>
                     </div>
                 </div>
             </div>
-            <form class="form-horizontal">
-                <div class="form-group">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <label for="inputDate1" class="col-sm-3 control-label">START DATE</label>
-                                <input type="date" class="form-control" id="inputDate1" placeholder="Date" data-role="start-date">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <label for="inputDate2" class="col-sm-3 control-label" >END DATE</label>
-                                <input type="date" class="form-control" id="inputDate2" placeholder="Date" data-role="end-date">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                   
+            
             <!-- </form> -->
             <div class="form-group">
                 <div class="container">
