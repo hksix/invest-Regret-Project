@@ -5,7 +5,7 @@
 // var apiKey = "5X4II9G2P5S3BJ05";
 // var URL = "https://www.alphavantage.co/query?"
 var $URL =  "https://www.quandl.com/api/v3/datatables/WIKI/PRICES.json?"
-var $form = $('[data-stock-order="form"]');
+var $form = $('[data-stock-order="form1"]');
 var $tickerName = $('[data-role="ticker-name"]');
 var $timeInterval = $('[data-role="time-interval"]');
 var $amountInvested = $('[data-role="amount-invested"]');
@@ -27,10 +27,11 @@ $(document).ready(function() {
     getCurrentDate();
 });
 
-$form.on('submit', function (event){
+$form.on('submit',function (event){
     event.preventDefault();
     dataDict($dataKeyNameArr);
     setUrl();
+    
 });
 function getCurrentDate(){
     var date = new Date();
@@ -55,6 +56,10 @@ function getData(URL){
         console.log(data);
         getCloseStartData();
         getCloseEndData();
+        // if ($startDate.val() === ""){
+        // $startDate.text($data["dataset"]['data'][xlength-1][0]);
+        // }  
+         
         });   
 }
 
@@ -104,7 +109,7 @@ function splitCounter(){
             splitCount.push($splitDataArr["dataset"]["data"][i][1]);
         }
     }
-    // console.log(splitCount);
+    console.log(splitCount);
     return splitCount;
     
 }
@@ -116,12 +121,13 @@ function unAdjustforSplit(){
     var adjustedStartPrice = combine.reduce(function (a,b){
         return a / b;
     });
-    // console.log('unadjusted start Price' + adjustedStartPrice);
+    console.log('unadjusted start Price' + adjustedStartPrice);
     return adjustedStartPrice;
     
 }
 
 function hindsightAmount(){
+    
     console.log((dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit()) *(getCloseEndData()));
     return(dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit()) *(getCloseEndData()); 
     
@@ -145,12 +151,13 @@ function getCryptoData(){
     
 }
 function getCryptoInfo(data){
-    console.log(data["Data"]["General"]['Name']);
-    console.log(data["Data"]["General"]['Twitter']);
-    console.log(data["Data"]["General"]['Description']);
-    console.log(data["Data"]["General"]['Features']);
-    console.log(data["Data"]["General"]['StartDate']);
-    console.log(data["Data"]["ICO"]['StartPrice']);
+    console.log(data["Data"]);
+    // console.log(data["Data"]["General"]['Name']);
+    // console.log(data["Data"]["General"]['Twitter']);
+    // console.log(data["Data"]["General"]['Description']);
+    // console.log(data["Data"]["General"]['Features']);
+    // console.log(data["Data"]["General"]['StartDate']);
+    // console.log(data["Data"]["ICO"]['StartPrice']);
 }
 
 
