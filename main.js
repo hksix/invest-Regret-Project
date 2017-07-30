@@ -100,6 +100,7 @@ function getCloseStartData(){
      return $searchDataDict["dataset"]['data'][x-1][1];
 }
 function getCloseEndData(){
+    $('#current-price-box').text("Current Price: "+"$"+ $searchDataDict["dataset"]["data"][0][1])
      return $searchDataDict["dataset"]["data"][0][1];
 }
 function splitCounter(){
@@ -109,7 +110,8 @@ function splitCounter(){
             splitCount.push($splitDataArr["dataset"]["data"][i][1]);
         }
     }
-    console.log(splitCount);
+    $('#split-share-box').text(dataDict($dataKeyNameArr)['tickerName'] +" has split " +splitCount.length + " times since you bought in.");
+
     return splitCount;
     
 }
