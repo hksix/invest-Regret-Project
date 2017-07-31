@@ -1,16 +1,26 @@
-/*This styles all text the same font-family. This will keep the design looking the same 
-throughout. I had to comment this out since the top logo is a different color.*/
-/**{
-    font-family: 'Lato', sans-serif;
-}*/
-
+/*This keeps white space from showing up on the right side.*/
+html,body{
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; 
+}
 
 h3 {
     color: white;
-    font-size: 50px;
+    font-size: 30px;
     font-family: 'Ultra', serif;
-    padding-top: 10px;
-    margin-right: 10px;
+    font-weight: lighter;
+    text-align: center;
+}
+/*Adds padding for searches on left and right.*/
+#tickername-start-end{
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+/*Makes Net Worth amount larger*/
+#net-worth-circle-text{
+    font-size: 20px;
 }
 
 /*This is the top header which holds the anchor tags and will hold the logo.*/
@@ -22,16 +32,7 @@ header{
 /*Here's the anchor tags in the top. We can change what's showing up here, I just used
 those as place holders.*/
 a{
-    font-weight: 900;
-    color: #FC4A1A;
-    float: right;
-    font-size: 24px;
-    display: inline;
-    margin: 10px;
-    margin-top: 50px;
-    line-height: 38px;
-    font-style: bold;
-    font-family: 'Lato', sans-serif;
+    display: none;
 }
 
 img{
@@ -44,9 +45,10 @@ h1{
     font-weight: 800;
     color: white;
     text-align: center;
-    font-size: 100px;
+    font-size: 40px;
     background-color: #F7B733;
     font-family: 'Lato', sans-serif;
+    padding-bottom: 10%;
 }
 
 /*First box.*/
@@ -54,7 +56,7 @@ h1{
     background-color: #F7B733;
     height: auto;
     text-align: center;
-    padding-bottom: 8%;
+    padding-bottom: 60%;
     font-family: 'Lato', sans-serif;
 
 }
@@ -71,11 +73,10 @@ h1{
 .header1 {
    text-align: center;
    padding: 5% 0 8% 0;
-   font-size: 80px;
    color: white;
    border-radius: 50%;
    background-color: #4ABDAC ;
-   font-size: 100px;
+   font-size: 40px;
 
 }
 
@@ -83,8 +84,10 @@ h4 {
    text-align: center;
    color: white;
    font-weight: 800;
-   font-size: 2em;
+   font-size: 20px;
+   float: bottom;
 }
+
 
 .left {
    color: white;
@@ -113,19 +116,17 @@ h4 {
     font-weight: 800;
     color: white;
     font-size: 20px;
-    border: 3px solid black;
     font-family: 'Lato', sans-serif;
     
 }
+
 #image-pg3{
     display: flex;
     justify-content: center;
     /* align-content: center; */
 }
 #money-bags{
-    /* clear: both; */
-    height: 60%;
-    width: 60%;
+    display: none;
 }
 #networth-circle{
     display: flex;
@@ -179,7 +180,7 @@ h4 {
 {
 	/* change font/size/etc here */
     /*////////////////////////////////////////*/
-	font: 11px "Tahoma", Arial, Serif;	
+	font: 20px 'Lato', sans-serif;	
 	text-align : center;
 	
 	/* vertical centering technique */
@@ -198,7 +199,271 @@ h4 {
     font-weight: 800;
     color: white;
     font-size: 20px;
-    border: 3px solid black;
+    font-family: 'Lato', sans-serif;
+}
+
+/*Fifth box.*/
+.five{
+    background-color: #DFDCE3;
+    height: 673px;
+    font-family: 'Lato', sans-serif;
+}
+
+/*Lorem Ipsum underneath "Let's look up some prices." Andrew added a pOne class here.*/
+.pOne{
+    display: none;
+}
+
+/*Styling for the NASDAQ and CRYPTO headers.*/
+h2{
+    text-align: center;
+    font-weight: 800;
+    font-size: 40px;
+    font-family: 'Lato', sans-serif;
+
+}
+
+#net-worth-circle{
+    font-size: 
+}
+
+/*Styling for the top button.*/
+.top-button .btn {
+    background-color: #FC4A1A;
+    color: white;
+    font-weight: 800;
+    border-radius: 25px;
+    padding: 15px;
+    font-family: 'Lato', sans-serif;
+    font-size: 
+
+}
+
+/*Styling for the button in the third box.*/
+.third-button .btn{
+    background-color: #FAA614;
+    color: white;
+    font-weight: 800;
+    border-radius: 25px;
+    padding: 15px;
+    margin-left: 40%;
+    margin-top: 2%;
+    font-family: 'Lato', sans-serif;
+}
+
+/*Styling for the button in the fourth div.*/
+.fourth-button .btn{
+    background-color: #FAA614;
+    color: white;
+    font-weight: 900;
+    border-radius: 25px;
+    padding: 15px;
+    margin-left: 47%;
+    margin-top: 2%;
+    font-family: 'Lato', sans-serif;
+}
+
+/*Styling for inputs in the NASDAQ and CRYPTO sections.*/
+.col-sm-3{
+    font-size: 10px;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+
+}
+
+/*Styling for the amount section.*/
+.col-sm-6{
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+}
+
+/*This needs to stay at the bottom of the page or it will overwrite the entire CSS.*/
+a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+
+
+
+@media only screen and (min-width: 1000px){
+h3 {
+    font-size: 50px;
+    padding-top: 10px;
+    margin-right: 10px;
+    display: block;
+    float: left;
+}
+
+/*Resets padding.*/
+#tickername-start-end{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+/*Makes Net Worth amount larger. NEED TO CHANGE THIS!!!!!!*/
+#net-worth-circle-text{
+    font-size: 20px;
+}
+
+/*Here's the anchor tags in the top. We can change what's showing up here, I just used
+those as place holders.*/
+a{
+    font-weight: 900;
+    color: #FC4A1A;
+    float: right;
+    font-size: 24px;
+    display: inline;
+    margin: 10px;
+    margin-top: 50px;
+    line-height: 38px;
+    font-style: bold;
+    font-family: 'Lato', sans-serif;
+}
+
+
+/*Styling for "Let's look up some prices."*/
+h1{
+    font-size: 100px;
+    padding-bottom: 0%;
+}
+
+.one{
+    padding-bottom: 8%;
+
+}
+
+/*Andrew*/
+.header1 {
+   text-align: center;
+   padding: 5% 0 8% 0;
+   color: white;
+   border-radius: 50%;
+   background-color: #4ABDAC ;
+   font-size: 100px;
+
+}
+
+h4 {
+   text-align: center;
+   color: white;
+   font-weight: 800;
+   font-size: 2em;
+}
+
+.left {
+   color: white;
+   font-weight: 800;  
+   text-align: center;
+   font-size: 1.5em;
+}
+
+.right {
+   color: white;
+   font-weight: 800;
+   text-align: center;
+   font-size: 1.5em;
+   
+  
+}
+
+
+/*Third box.*/
+/*hk start  */
+.three{
+    background-color: #2461BF;
+    height: auto;
+    padding-top: 2%;
+    text-align: left;
+    font-weight: 800;
+    color: white;
+    font-size: 20px;
+    font-family: 'Lato', sans-serif;
+    
+}
+#image-pg3{
+    display: flex;
+    justify-content: center;
+    /* align-content: center; */
+}
+#money-bags{
+    /* clear: both; */
+    height: 60%;
+    width: 60%;
+    display: inline-block;
+}
+#networth-circle{
+    display: flex;
+    justify-content: center;
+}
+/* Main Container -  this controls the size of the circle */
+.circle_container
+{
+	width : 200px;
+	height : 200px;
+	margin : 10%;
+	padding : 0;
+	/* border : 1px solid red;  */
+}
+
+/* Circle Main draws the actual circle */
+.circle_main
+{
+	width : 100%;
+	height : 100%;
+	border-radius : 50%;
+	border : 2px solid black;	/* can alter thickness and colour of circle on this line */
+	margin : 0;
+	padding : 0;
+}
+
+/* Circle Text Container - constrains text area to within the circle */
+.circle_text_container
+{
+	/* area constraints */
+	width : 70%;
+	height : 70%;
+	max-width : 70%;
+	max-height : 70%;
+	margin : 0;
+	padding : 0;
+
+	/* some position nudging to center the text area */
+	position : relative;
+	left : 15%;
+	top : 15%;
+	
+	/* preserve 3d prevents blurring sometimes caused by the text centering in the next class */
+	transform-style : preserve-3d;
+	
+	/*border : 1px solid green;*/
+}
+
+/* Circle Text - the appearance of the text within the circle plus vertical centering */
+.circle_text
+{
+	/* change font/size/etc here */
+    /*////////////////////////////////////////*/
+	font: 11px 'Lato', sans-serif;	
+	text-align : center;
+	
+	/* vertical centering technique */
+	position : relative;
+	top : 50%;
+	transform : translateY(-50%);
+}
+/*HK -end  */
+
+/*Fourth box.*/
+.four{
+    background-color: #4D20A4;
+    height: auto;
+    padding-top: 2%;
+    text-align: left;
+    font-weight: 800;
+    color: white;
+    font-size: 20px;
     font-family: 'Lato', sans-serif;
 }
 
@@ -215,10 +480,10 @@ h4 {
     color: white;
     padding-left: 200px;
     padding-right: 200px;
-    margin-top: 25px;
     padding-bottom: 50px;
     padding-top: 50px;
     font-family: 'Lato', sans-serif;
+    display: inline-block;
 }
 
 /*Styling for the NASDAQ and CRYPTO headers.*/
@@ -252,6 +517,7 @@ h2{
     margin-left: 47%;
     margin-top: 2%;
     font-family: 'Lato', sans-serif;
+    text-align: center;
 }
 
 /*Styling for the button in the fourth div.*/
@@ -286,3 +552,4 @@ a:hover {
     text-decoration: none;
 }
 
+}
