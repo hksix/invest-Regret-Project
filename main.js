@@ -206,14 +206,17 @@ function getCryptoData(){
     if (coinName === "ETH"){
         URLinfo = "https://www.cryptocompare.com/api/data/coinsnapshotfullbyid/?id=7605";
         URLprices ="https://min-api.cryptocompare.com/data/histoday?fsym=ETH&tsym=USD&limit=724&aggregate=1";
+        imgSrc = "https://maxcdn.icons8.com/Share/icon/color/Logos//ethereum1600.png"
         startPrice = 0.71;
     }
     if (coinName === "BTC"){
         URLinfo = 'https://www.cryptocompare.com/api/data/coinsnapshotfullbyid/?id=1182';
         URLprices = 'https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=USD&limit=2500&aggregate=1';
+        imgSrc = "http://icons.iconarchive.com/icons/paomedia/small-n-flat/512/bitcoin-icon.png";
         startPrice = 68.08;
     }
     theCoin.setStarting(startPrice);
+    theCoin.setImg(imgSrc);
     theCoin.setShares(amountInvested);
     theCoin.setCurrent()
     theCoin.getInfo(URLinfo)
@@ -226,9 +229,14 @@ function getCryptoData(){
 function setCryptoInfo(){
     $('#coin-price').html("Current Price:" +"<br>"+ "$"+ theCoin.currentPrice);
     $('#twitter-handle').text("Twitter: " + theCoin.twitterHandle);
-    $('#coin-info').html(theCoin.coinInfo);
+    if (theCoin["coinName"]=== "ETH"){
+        $('#coin-info').text("Ethereum is an open software platform based on blockchain technology that enables developers to build and deploy decentralized applications.");
+    }else{ 
+        $('#coin-info').html(theCoin.coinInfo);
+    }
     $('#coin-start-date').text("Inception Date: "+theCoin.startDate);
     $('#coin-net-worth-circle-text').text("$" + Math.floor(Number(theCoin.shares * theCoin.currentPrice)));
+    $('#coin-img').attr('src', theCoin.imgSrc);
 }
 
 
@@ -240,6 +248,9 @@ function Coin(coinName){
 Coin.prototype.setStarting = function(startingPrice){
     this.starting =startingPrice;   
 }
+Coin.prototype.setImg = function(imgSrc){
+    this.imgSrc = imgSrc;
+}
 Coin.prototype.setCurrent = function(){
     return $.get("https://min-api.cryptocompare.com/data/price?fsym="+this.coinName+"&tsyms=USD").then(function (data){
         this.currentPrice = data['USD'];
@@ -247,7 +258,7 @@ Coin.prototype.setCurrent = function(){
     }.bind(this));
 }
 Coin.prototype.setShares = function(amountInvested){
-    this.shares = Number(amountInvested / this.starting);   
+    this.shares = Number(amountInvested/this.starting);   
 }
 Coin.prototype.getInfo= function(URL){
     return $.get(URL)
@@ -262,15 +273,5 @@ Coin.prototype.getInfo= function(URL){
 
 
 
-"https://www.quandl.com/api/v3/datasets/WIKI/MSFT.json?&column_index=7&api_key=YiNzVQcDRbgWz1L_khwj"
-// splits https://www.quandl.com/api/v3/datasets/WIKI/MSFT.json?&column_index=7&api_key=YiNzVQcDRbgWz1L_khwj
-// "https://www.quandl.com/api/v3/datasets/WIKI/"+$userInputDict['tickerName']+".json?column_index=4&"+$userInputDict['startDate']+"&"+$userInputDict['endDate']+'&collapse=monthly&&api_key=YiNzVQcDRbgWz1L_khwj';
-// https://www.quandl.com/api/v3/datasets/WIKI/MSFT.json?&collapse=annual&column_index=4&api_key=YiNzVQcDRbgWz1L_khwj
 
-// https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD gets current price - returns {"USD":195.32}
-// https://www.cryptocompare.com/api/data/coinsnapshotfullbyid/?id=7605%tsyms=USD//for ETH
-// https://www.cryptocompare.com/api/data/coinsnapshotfullbyid/?id=1182 //for BTC
-// https://www.cryptocompare.com/api/data/coinsnapshot/?fsym=ETH&tsym=USD
-// for all BTC price info https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=USD&limit=2500&aggregate=1
-// for all ETH price info https://min-api.cryptocompare.com/data/histoday?fsym=ETH&tsym=USD&limit=724&aggregate=1
 

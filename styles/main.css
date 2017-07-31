@@ -104,7 +104,7 @@ h4 {
 
 
 /*Third box.*/
-/*hk start  */
+
 .three{
     background-color: #2461BF;
     height: auto;
@@ -209,7 +209,15 @@ h4 {
 #twitter-handle{
     text-align: center;
 }
-
+#coin-img-div{
+    display: flex;
+    justify-content: center;
+}
+#coin-img{
+    
+    height: 60%;
+    width: 60%;
+}
 /*HK end Monday  */
 
 
