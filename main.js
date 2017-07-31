@@ -219,4 +219,7 @@ var largest = Math.max.apply(null, y);
       ]
     };
     new Chartist.Line('.ct-chart', data,options );
+
+
+    console.log("hi")
 }

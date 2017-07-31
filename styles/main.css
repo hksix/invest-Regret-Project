@@ -53,8 +53,46 @@ h1{
 .two{
     background-color: #4ABDAC;
     /*I left the height here since there's nothing in the box. We'll change it later.*/
-    height: 673px;
+    height: auto;
 }
+
+.header1 {
+    text-align: center;
+    padding: 5% 0 8% 0;
+    font-size: 80px;
+    color: white;
+    border-radius: 50%;
+    background-color: #4ABDAC;
+    font-size: 100px;
+
+}
+
+h4 {
+    text-align: center;
+    color: white;
+    font-weight: 800;
+    font-size: 2em;
+}
+
+.left {
+    color: white; 
+    font-weight: 800;   
+    text-align: center;
+    font-size: 1.5em;
+ }
+
+.right {
+    color: white;
+    font-weight: 800;
+    text-align: center;
+    font-size: 1.5em;
+    
+   
+}
+
+
+
+
 
 /*Third box.*/
 .three{
@@ -88,7 +126,7 @@ h1{
 }
 
 /*Lorem Ipsum underneath "Let's look up some prices." Andrew added a pOne class here.*/
-p{
+.pOne{
     font-weight: 800;
     color: white;
     padding-left: 200px;
@@ -150,6 +188,21 @@ h2{
     text-align: center;
     margin-left: 25%;
 }
+
+/*Andrew's CSS for section 2.*/
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*This needs to stay at the bottom of the page or it will overwrite the entire CSS.*/
 a:hover {
