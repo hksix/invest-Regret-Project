@@ -207,56 +207,30 @@ function getCryptoData(){
         URLinfo = "https://www.cryptocompare.com/api/data/coinsnapshotfullbyid/?id=7605";
         URLprices ="https://min-api.cryptocompare.com/data/histoday?fsym=ETH&tsym=USD&limit=724&aggregate=1";
         startPrice = 0.71;
-        getURLdata(URLinfo,URLprices);
     }
     if (coinName === "BTC"){
         URLinfo = 'https://www.cryptocompare.com/api/data/coinsnapshotfullbyid/?id=1182';
         URLprices = 'https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=USD&limit=2500&aggregate=1';
         startPrice = 68.08;
-        getURLdata(URLinfo,URLprices);
     }
     theCoin.setStarting(startPrice);
     theCoin.setShares(amountInvested);
     theCoin.setCurrent()
     theCoin.getInfo(URLinfo)
         .then(function (){
-
+            setCryptoInfo();
         });
 }
 
-function getURLdata(URL1,URL2){
     
-    // var price = $.get(URL2)
-        // price.then(function(data){
-        //     setCryptoPrice(data);
-        // });
-    var currentPrice = $.get("https://min-api.cryptocompare.com/data/price?fsym="+$coinName.val()+"&tsyms=USD")
-        currentPrice.then(function(data){
-                setCryptoCurrentPrice(data);
-                
-        });
-        
-}
-    
-function setCryptoInfo(data){
-    var shortInfo= $(data["Data"]["General"]['Description']);
-    $('#twitter-handle').text("Twitter: " + (data["Data"]["General"]['Twitter']));
-    $('#coin-info').html(shortInfo[0]["innerHTML"]);
-    $('#coin-start-date').text("Inception Date: "+(data["Data"]["General"]['StartDate']));
+function setCryptoInfo(){
+    $('#coin-price').html("Current Price:" +"<br>"+ "$"+ theCoin.currentPrice);
+    $('#twitter-handle').text("Twitter: " + theCoin.twitterHandle);
+    $('#coin-info').html(theCoin.coinInfo);
+    $('#coin-start-date').text("Inception Date: "+theCoin.startDate);
+    $('#coin-net-worth-circle-text').text("$" + Math.floor(Number(theCoin.shares * theCoin.currentPrice)));
 }
 
-function setCryptoCurrentPrice(data){
-    // $coinName.val().current(data["USD"]);
-    $('#coin-price').html("Current Price:" +"<br>"+ "$"+ data["USD"]);
-    return data['USD'];
-    
-}
-function getShares(starting){
-    $amountInvestedCoin.val().setShares()
-    var coinShares = ($amountInvestedCoin.val()) / starting;
-    // $coinName.val().shares(coinShares);
-    return Number(coinShares);
-}
 
 
 function Coin(coinName){
@@ -269,7 +243,7 @@ Coin.prototype.setStarting = function(startingPrice){
 Coin.prototype.setCurrent = function(){
     return $.get("https://min-api.cryptocompare.com/data/price?fsym="+this.coinName+"&tsyms=USD").then(function (data){
         this.currentPrice = data['USD'];
-        return this.currentPrice;
+        return Number(this.currentPrice);
     }.bind(this));
 }
 Coin.prototype.setShares = function(amountInvested){
@@ -284,7 +258,6 @@ Coin.prototype.getInfo= function(URL){
         }.bind(this));
 }
 
-// $('#coin-net-worth-circle-text');
 
 
 
