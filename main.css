@@ -1,0 +1,309 @@
+/*This styles all text the same font-family. This will keep the design looking the same 
+throughout. I had to comment this out since the top logo is a different color.*/
+/**{
+    font-family: 'Lato', sans-serif;
+}*/
+
+
+h3 {
+    color: white;
+    font-size: 50px;
+    font-family: 'Ultra', serif;
+    padding-top: 10px;
+    margin-right: 10px;
+}
+
+/*This is the top header which holds the anchor tags and will hold the logo.*/
+header{
+    height: auto;
+    background-color: #F7B733;
+}
+
+/*Here's the anchor tags in the top. We can change what's showing up here, I just used
+those as place holders.*/
+a{
+    font-weight: 900;
+    color: #FC4A1A;
+    float: right;
+    font-size: 24px;
+    display: inline;
+    margin: 10px;
+    margin-top: 50px;
+    line-height: 38px;
+    font-style: bold;
+    font-family: 'Lato', sans-serif;
+}
+
+img{
+    margin-top: 20px;
+}
+
+
+/*Styling for "Let's look up some prices."*/
+h1{
+    font-weight: 800;
+    color: white;
+    text-align: center;
+    font-size: 100px;
+    background-color: #F7B733;
+    font-family: 'Lato', sans-serif;
+}
+
+/*First box.*/
+.one{
+    background-color: #F7B733;
+    height: auto;
+    text-align: center;
+    padding-bottom: 8%;
+    font-family: 'Lato', sans-serif;
+
+}
+
+/*Second box.*/
+.two{
+    background-color: #4ABDAC;
+    /*I left the height here since there's nothing in the box. We'll change it later.*/
+    height: auto;
+    font-family: 'Lato', sans-serif;
+}
+
+/*Andrew*/
+.header1 {
+   text-align: center;
+   padding: 5% 0 8% 0;
+   font-size: 80px;
+   color: white;
+   border-radius: 50%;
+   background-color: #4ABDAC ;
+   font-size: 100px;
+   opacity: 0;
+   transform: translateY(50px);
+   transition: all 1s ease-out;
+
+}
+
+.header1.fade-in{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+h4 {
+   text-align: center;
+   color: white;
+   font-weight: 800;
+   font-size: 2em;
+}
+
+.left {
+   color: white;
+   font-weight: 800;  
+   text-align: center;
+   font-size: 1.5em;
+}
+
+.right {
+   color: white;
+   font-weight: 800;
+   text-align: center;
+   font-size: 1.5em;
+   
+  
+}
+
+
+.col-sm-4 {
+    opacity: .0;
+    transform: translateX(50px);
+    transition: all 1s ease-out;
+
+}
+
+.col-sm-4.secondClass {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/*Third box.*/
+/*hk start  */
+.three{
+    background-color: #2461BF;
+    height: auto;
+    padding-top: 2%;
+    text-align: left;
+    font-weight: 800;
+    color: white;
+    font-size: 20px;
+    border: 3px solid black;
+    font-family: 'Lato', sans-serif;
+    
+}
+#image-pg3{
+    display: flex;
+    justify-content: center;
+    /* align-content: center; */
+}
+#money-bags{
+    /* clear: both; */
+    height: 60%;
+    width: 60%;
+}
+#networth-circle{
+    display: flex;
+    justify-content: center;
+}
+/* Main Container -  this controls the size of the circle */
+.circle_container
+{
+	width : 200px;
+	height : 200px;
+	margin : 10%;
+	padding : 0;
+	/* border : 1px solid red;  */
+}
+
+/* Circle Main draws the actual circle */
+.circle_main
+{
+	width : 100%;
+	height : 100%;
+	border-radius : 50%;
+	border : 2px solid black;	/* can alter thickness and colour of circle on this line */
+	margin : 0;
+	padding : 0;
+}
+
+/* Circle Text Container - constrains text area to within the circle */
+.circle_text_container
+{
+	/* area constraints */
+	width : 70%;
+	height : 70%;
+	max-width : 70%;
+	max-height : 70%;
+	margin : 0;
+	padding : 0;
+
+	/* some position nudging to center the text area */
+	position : relative;
+	left : 15%;
+	top : 15%;
+	
+	/* preserve 3d prevents blurring sometimes caused by the text centering in the next class */
+	transform-style : preserve-3d;
+	
+	/*border : 1px solid green;*/
+}
+
+/* Circle Text - the appearance of the text within the circle plus vertical centering */
+.circle_text
+{
+	/* change font/size/etc here */
+    /*////////////////////////////////////////*/
+	font: 11px "Tahoma", Arial, Serif;	
+	text-align : center;
+	
+	/* vertical centering technique */
+	position : relative;
+	top : 50%;
+	transform : translateY(-50%);
+}
+/*HK -end  */
+
+/*Fourth box.*/
+.four{
+    background-color: #4D20A4;
+    height: auto;
+    padding-top: 2%;
+    text-align: left;
+    font-weight: 800;
+    color: white;
+    font-size: 20px;
+    border: 3px solid black;
+    font-family: 'Lato', sans-serif;
+}
+
+/*Fifth box.*/
+.five{
+    background-color: #DFDCE3;
+    height: 673px;
+    font-family: 'Lato', sans-serif;
+}
+
+/*Lorem Ipsum underneath "Let's look up some prices." Andrew added a pOne class here.*/
+.pOne{
+    font-weight: 800;
+    color: white;
+    padding-left: 200px;
+    padding-right: 200px;
+    margin-top: 25px;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    font-family: 'Lato', sans-serif;
+}
+
+/*Styling for the NASDAQ and CRYPTO headers.*/
+h2{
+    text-align: right;
+    font-weight: 800;
+    font-size: 100px;
+    margin-right: 40px;
+    font-family: 'Lato', sans-serif;
+
+}
+
+/*Styling for the top button.*/
+.top-button .btn {
+    background-color: #FC4A1A;
+    color: white;
+    font-weight: 800;
+    border-radius: 25px;
+    padding: 15px;
+    font-family: 'Lato', sans-serif;
+
+}
+
+/*Styling for the button in the third box.*/
+.third-button .btn{
+    background-color: #FAA614;
+    color: white;
+    font-weight: 800;
+    border-radius: 25px;
+    padding: 15px;
+    margin-left: 47%;
+    margin-top: 2%;
+    font-family: 'Lato', sans-serif;
+}
+
+/*Styling for the button in the fourth div.*/
+.fourth-button .btn{
+    background-color: #FAA614;
+    color: white;
+    font-weight: 900;
+    border-radius: 25px;
+    padding: 15px;
+    margin-left: 47%;
+    margin-top: 2%;
+    font-family: 'Lato', sans-serif;
+}
+
+/*Styling for inputs in the NASDAQ and CRYPTO sections.*/
+.col-sm-3{
+    font-size: 10px;
+    font-family: 'Lato', sans-serif;
+
+}
+
+/*Styling for the amount section.*/
+.col-sm-6{
+    text-align: center;
+    margin-left: 25%;
+    font-family: 'Lato', sans-serif;
+}
+
+/*This needs to stay at the bottom of the page or it will overwrite the entire CSS.*/
+a:hover {
+    color: white;
+    text-decoration: none;
+}
+

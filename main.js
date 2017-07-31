@@ -4,6 +4,8 @@
 
 // var apiKey = "5X4II9G2P5S3BJ05";
 // var URL = "https://www.alphavantage.co/query?"
+
+
 var $URL =  "https://www.quandl.com/api/v3/datatables/WIKI/PRICES.json?"
 var $form = $('[data-stock-order="form1"]');
 var $tickerName = $('[data-role="ticker-name"]');
@@ -100,6 +102,7 @@ function getCloseStartData(){
      return $searchDataDict["dataset"]['data'][x-1][1];
 }
 function getCloseEndData(){
+    $('#current-price-box').text("Current Price: "+"$"+ $searchDataDict["dataset"]["data"][0][1])
      return $searchDataDict["dataset"]["data"][0][1];
 }
 function splitCounter(){
@@ -109,7 +112,8 @@ function splitCounter(){
             splitCount.push($splitDataArr["dataset"]["data"][i][1]);
         }
     }
-    console.log(splitCount);
+    $('#split-share-box').text(dataDict($dataKeyNameArr)['tickerName'] +" has split " +splitCount.length + " times since you bought in.");
+
     return splitCount;
     
 }
@@ -127,8 +131,10 @@ function unAdjustforSplit(){
 }
 
 function hindsightAmount(){
-    
-    console.log((dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit()) *(getCloseEndData()));
+    var worth = (dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit()) *(getCloseEndData());
+    worth = Number(worth.toFixed(2));
+    $('#net-worth-circle-text').text("$"+worth);
+    // console.log((dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit()) *(getCloseEndData()));
     return(dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit()) *(getCloseEndData()); 
     
 }
@@ -219,7 +225,76 @@ var largest = Math.max.apply(null, y);
       ]
     };
     new Chartist.Line('.ct-chart', data,options );
-
-
-    console.log("hi")
 }
+
+
+
+
+
+// Scroll Magic 
+
+
+$(document).ready(function(){
+    controller = new ScrollMagic.Controller();
+    var ourScene = new ScrollMagic.Scene({
+        triggerElement: ".header1"
+
+    })
+    .setClassToggle('.header1', 'fade-in')
+    // .addIndicators()
+    .addTo(controller)
+})
+
+
+  controller = new ScrollMagic.Controller();
+    var ourScene = new ScrollMagic.Scene({
+        triggerElement: ".topPin",
+        triggerHook: 0,
+        duration: "20%"
+})
+    .setPin(".topPin", {pushFollowers: false})
+    // .addIndicators({
+    //     indent: 400
+    // })
+    .addTo(controller);
+
+
+controller = new ScrollMagic.Controller();
+    var ourScene = new ScrollMagic.Scene({
+        triggerElement: "H1",
+        triggerHook: 0,
+        duration: "20%"
+})
+    .setPin("H1", {pushFollowers: false})
+    // .addIndicators({
+    //     indent: 500
+    // })
+    .addTo(controller);
+
+
+
+
+
+    
+$(".col-sm-4").each(function(){
+
+    controller = new ScrollMagic.Controller();
+    var ourScene = new ScrollMagic.Scene({
+        triggerElement: this
+
+    })
+    .setClassToggle(this, 'secondClass')
+    // .addIndicators({
+    //     indent: 200
+    // })
+    .addTo(controller);
+})
+
+
+
+
+
+
+
+
+
