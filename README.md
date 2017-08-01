@@ -55,7 +55,7 @@ Add additional notes about how to deploy this on a live system
 * Cryptocompare API
 * Scrollmagic.js
 * Chartist.js
-*Jquery
+* Jquery
 
 ## Authors
 
