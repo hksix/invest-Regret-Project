@@ -18,6 +18,11 @@ h3.logo {
     padding-right: 80px;
 }
 
+.col-md-4.fourth{
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
 /*Makes Net Worth amount larger*/
 #net-worth-circle-text{
     font-size: 20px;
@@ -42,7 +47,7 @@ header{
 /*Here's the anchor tags in the top. We can change what's showing up here, I just used
 those as place holders.*/
 a{
-    display: none;
+display: none;
 }
 
 img{
@@ -149,13 +154,17 @@ h4 {
 	/* border : 1px solid red;  */
 }
 
+#coin-img{
+    display: none;
+}
+
 /* Circle Main draws the actual circle */
 .circle_main
 {
 	width : 100%;
 	height : 100%;
 	border-radius : 50%;
-	border : 2px solid black;	/* can alter thickness and colour of circle on this line */
+	border : 4px solid white;	/* can alter thickness and colour of circle on this line */
 	margin : 0;
 	padding : 0;
 }
@@ -181,6 +190,8 @@ h4 {
 	
 	/*border : 1px solid green;*/
 }
+
+
 
 /* Circle Text - the appearance of the text within the circle plus vertical centering */
 .circle_text
@@ -210,7 +221,7 @@ h4 {
 }
 
 /*Fifth box.*/
-.five{
+#five{
     background-color: #DFDCE3;
     height: auto;
     font-family: 'Lato', sans-serif;
@@ -286,7 +297,6 @@ h2{
     margin-left: 40%;
     margin-top: 2%;
     font-family: 'Lato', sans-serif;
-
 }
 
 /*Styling for inputs in the NASDAQ and CRYPTO sections.*/
@@ -357,7 +367,7 @@ h3.logo {
     justify-content: center;
 }
 #coin-img{
-    
+    display: inline;
     height: 60%;
     width: 60%;
 }
@@ -398,6 +408,7 @@ a{
     font-style: bold;
     font-family: 'Lato', sans-serif;
 }
+
 
 
 /*Styling for "Let's look up some prices."*/
@@ -515,8 +526,16 @@ h2{
     margin-left: 25%;
 }
 
+.col-md-4.fourth{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
 /*This needs to stay at the bottom of the page or it will overwrite the entire CSS.*/
 a:hover {
     color: white;
     text-decoration: none;
 }
+
+
+
