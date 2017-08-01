@@ -18,6 +18,11 @@ h3.logo {
     padding-right: 80px;
 }
 
+.col-md-4.fourth{
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
 /*Makes Net Worth amount larger*/
 #net-worth-circle-text{
     font-size: 20px;
@@ -42,11 +47,11 @@ header{
 /*Here's the anchor tags in the top. We can change what's showing up here, I just used
 those as place holders.*/
 a{
-    display: none;
+display: none;
 }
 
 img{
-     margin-top: 20px; 
+    margin-top: 20px;
 }
 
 
@@ -77,11 +82,6 @@ h1.main{
     height: auto;
     font-family: 'Lato', sans-serif;
 }
-/*//////////////////////////////HK///////////////////////////////////  */
-#image-pg2{
-    display: flex;
-    justify-content: center;
-}
 
 /*Andrew*/
 .header1 {
@@ -92,7 +92,7 @@ h1.main{
    font-size: 40px;
 
 }
-
+/*hk start  */
 .three{
     background-color: #2461BF;
     height: auto;
@@ -154,13 +154,17 @@ h4 {
 	/* border : 1px solid red;  */
 }
 
+#coin-img{
+    display: none;
+}
+
 /* Circle Main draws the actual circle */
 .circle_main
 {
 	width : 100%;
 	height : 100%;
 	border-radius : 50%;
-	border : 1px solid black;	/* can alter thickness and colour of circle on this line */
+	border : 4px solid white;	/* can alter thickness and colour of circle on this line */
 	margin : 0;
 	padding : 0;
 }
@@ -187,6 +191,8 @@ h4 {
 	/*border : 1px solid green;*/
 }
 
+
+
 /* Circle Text - the appearance of the text within the circle plus vertical centering */
 .circle_text
 {
@@ -200,7 +206,7 @@ h4 {
 	top : 50%;
 	transform : translateY(-50%);
 }
-
+/*HK -end  */
 
 /*Fourth box.*/
 .four{
@@ -215,7 +221,7 @@ h4 {
 }
 
 /*Fifth box.*/
-.five{
+#five{
     background-color: #DFDCE3;
     height: auto;
     font-family: 'Lato', sans-serif;
@@ -234,7 +240,6 @@ h2{
     text-align: center;
     font-weight: 800;
     font-size: 40px;
-    color: white;
     font-family: 'Lato', sans-serif;
 
 }
@@ -292,7 +297,6 @@ h2{
     margin-left: 40%;
     margin-top: 2%;
     font-family: 'Lato', sans-serif;
-
 }
 
 /*Styling for inputs in the NASDAQ and CRYPTO sections.*/
@@ -317,6 +321,243 @@ a:hover {
     text-decoration: none;
 }
 
+
+/*Animations: for main page.*/
+h1.main {
+  animation-duration: 0s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%; 
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+
+@media only screen and (min-width: 768px){
+h1.main {
+  animation-duration: 0s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%; 
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+h3.logo {
+    font-size: 40px;
+    padding-top: 10px;
+    margin-right: 10px;
+    display: block;
+    text-align: center;
+}
+
+.fourth-button .btn{
+    margin-left: 47%;
+    text-align: center;
+}
+
+/*HK start Monday  */
+#pg4-3-boxs{
+    text-align: center;
+}
+#twitter-handle{
+    text-align: center;
+}
+
+#coin-img-div{
+    display: flex;
+    justify-content: center;
+}
+#coin-img{
+    display: inline;
+    height: 30%;
+    width: 30%;
+}
+
+/*HK end Monday  */
+/*Resets padding.*/
+#tickername-start-end{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.col-md-4.crypto{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+/*Makes Net Worth amount larger. NEED TO CHANGE THIS!!!!!!*/
+#net-worth-circle-text{
+    font-size: 20px;
+}
+
+/*Resets amount padding.*/
+div.col-sm-6.amount{
+    padding-right: 0px;
+    padding-left: 0px;
+}
+/*Here's the anchor tags in the top. We can change what's showing up here, I just used
+those as place holders.*/
+a{
+    font-weight: 900;
+    color: #FC4A1A;
+    float: right;
+    font-size: 18px;
+    display: inline;
+    margin: 10px;
+    margin-top: 50px;
+    line-height: 38px;
+    font-style: bold;
+    font-family: 'Lato', sans-serif;
+}
+
+
+
+/*Styling for "Let's look up some prices."*/
+h1.main{
+    font-size: 60px;
+    padding-bottom: 0%;
+}
+
+.one{
+    padding-bottom: 8%;
+
+}
+
+
+h4 {
+   text-align: center;
+   color: white;
+   font-size: 2em;
+}
+
+.right {
+   color: white;
+   font-weight: 800;
+   text-align: center;
+   font-size: 1.5em;
+   
+  
+}
+
+/*Andrew*/
+.header1 {
+   text-align: right;
+   font-weight: 800;
+   font-family: 'Lato', sans-serif;
+   color: white;
+   border-radius: 50%;
+   background-color: #4ABDAC ;
+   font-size: 60px;
+   margin-right: 40px;
+
+}
+
+/*Third box.*/
+/*hk start  */
+.three{
+    background-color: #2461BF;
+    height: auto;
+    padding-top: 2%;
+    text-align: left;
+    font-weight: 800;
+    color: white;
+    font-size: 20px;
+    font-family: 'Lato', sans-serif;
+    
+}
+#image-pg3{
+    display: flex;
+    justify-content: center;
+    /* align-content: center; */
+}
+#money-bags{
+    /* clear: both; */
+    height: 30%;
+    width: 30%;
+    display: inline-block;
+}
+#networth-circle{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+/* Circle Text - the appearance of the text within the circle plus vertical centering */
+.circle_text
+{
+	/* change font/size/etc here */
+    /*////////////////////////////////////////*/
+	font: 11px;
+	
+	/* vertical centering technique */
+	position : relative;
+	top : 50%;
+	transform : translateY(-50%);
+}
+/*HK -end  */
+
+/*Lorem Ipsum underneath "Let's look up some prices." Andrew added a pOne class here.*/
+.pOne{
+    font-weight: 800;
+    color: white;
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    font-family: 'Lato', sans-serif;
+    display: inline-block;
+}
+
+/*Styling for the NASDAQ and CRYPTO headers.*/
+h2{
+    text-align: center;
+    font-size: 60px;
+    margin-right: 40px;
+}
+
+/*Styling for the button in the third box.*/
+.third-button .btn{
+    margin-left: 47%;
+    text-align: center;
+}
+
+/*Styling for the amount section.*/
+.col-sm-6{
+    margin-left: 25%;
+}
+
+.col-md-4.fourth{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+/*This needs to stay at the bottom of the page or it will overwrite the entire CSS.*/
+a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+
+@media only screen and (min-width: 1000px){
+
 /*Animations: for main page.*/
 h1.main {
   animation-duration: 4s;
@@ -335,8 +576,6 @@ h1.main {
   }
 }
 
-
-@media only screen and (min-width: 1000px){
 h3.logo {
     font-size: 50px;
     padding-top: 10px;
@@ -350,7 +589,7 @@ h3.logo {
     text-align: center;
 }
 
-
+/*HK start Monday  */
 #pg4-3-boxs{
     text-align: center;
 }
@@ -363,12 +602,12 @@ h3.logo {
     justify-content: center;
 }
 #coin-img{
-    
+    display: inline;
     height: 60%;
     width: 60%;
 }
 
-
+/*HK end Monday  */
 /*Resets padding.*/
 #tickername-start-end{
     padding-left: 0px;
@@ -404,6 +643,7 @@ a{
     font-style: bold;
     font-family: 'Lato', sans-serif;
 }
+
 
 
 /*Styling for "Let's look up some prices."*/
@@ -521,8 +761,15 @@ h2{
     margin-left: 25%;
 }
 
+.col-md-4.fourth{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
 /*This needs to stay at the bottom of the page or it will overwrite the entire CSS.*/
 a:hover {
     color: white;
     text-decoration: none;
 }
+
+/*Most recent*/
