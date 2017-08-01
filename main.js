@@ -86,11 +86,11 @@ var URL = "https://www.quandl.com/api/v3/datasets/WIKI/"+dataDict($dataKeyNameAr
 }
 
 function getCloseStartData(){
-    var dateNPrice = {};
+    // var dateNPrice = {};
      var x = $searchDataDict.dataset.data.length;
-     dateNPrice[$searchDataDict["dataset"]['data'][x-1]] = $searchDataDict["dataset"]['data'][x-1][1];
-     console.log(dateNPrice);
-    //  return $searchDataDict["dataset"]['data'][x-1][1];
+    //  dateNPrice[$searchDataDict["dataset"]['data'][x-1]] = $searchDataDict["dataset"]['data'][x-1][1];
+    //  console.log(dateNPrice);
+     return $searchDataDict["dataset"]['data'][x-1][1];
 
 }
 function getCloseEndData(){
@@ -103,7 +103,7 @@ function splitCounter(){
     for (var i = 0; i<$splitDataArr["dataset"]["data"].length;i++){
         if($splitDataArr["dataset"]["data"][i][1] > 1 ){
             splitCount.push($splitDataArr["dataset"]["data"][i][1]);
-            splitDates.push({key: $splitDataArr["dataset"]["data"][i], value: $splitDataArr["dataset"]["data"][i][1]} );
+            // splitDates.push({key: $splitDataArr["dataset"]["data"][i], value: $splitDataArr["dataset"]["data"][i][1]} );
         }
     }
     // console.log(splitDates);
@@ -148,7 +148,6 @@ function getGraphData(){
     $.get(URL)
         .then(function(data) {
             temp = data;
-            // unAdjustforSplit1(data)
             console.log(temp)
             getDataPlots(data)
             });
@@ -166,15 +165,19 @@ function getDataPlots(list){
     }
     // console.log(x);
     var y= [];
+    var comp = list['dataset']['data'];
 
-    list['dataset']['data'].forEach(function (month){
-    y.push(unAdjustforSplit1(month[1]));
-    // y.push(month[1]);
-
-
+    var first5 = comp.slice(comp.length/2);
+    first5 = first5.reverse();
+    var remd = comp.slice(0,comp.length/2);
+    remd = remd.reverse();
+    first5.forEach(function (month){   
+        y.push(unAdjustforSplit1(month[1]));
     });
- 
-    makeGraph(x,y.reverse());
+    remd.forEach(function (month){
+        y.push(month[1]);
+    });
+    makeGraph(x,y);
 }
 function makeGraph(x,y){
 var largest = Math.max.apply(null, y);
