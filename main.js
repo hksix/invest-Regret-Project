@@ -252,10 +252,3 @@ Coin.prototype.getInfo= function(URL){
         }.bind(this));
 }
 
-// $("#top-button").click(function(){
-//     $("h1.main").fadeOut();
-//     $(".pOne").fadeOut();
-//     $("#top-button").fadeOut();
-//     $("a").fadeIn();
-// });
-
