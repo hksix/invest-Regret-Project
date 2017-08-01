@@ -224,3 +224,76 @@ var largest = Math.max.apply(null, y);
     };
     new Chartist.Line('.ct-chart', data,options );
 }
+
+// Scroll Magic 
+
+
+$(document).ready(function(){
+    controller = new ScrollMagic.Controller();
+    var ourScene = new ScrollMagic.Scene({
+        triggerElement: ".header1"
+
+    })
+    .setClassToggle('.header1', 'fade-in')
+    // .addIndicators()
+    .addTo(controller)
+})
+
+
+  controller = new ScrollMagic.Controller();
+    var ourScene = new ScrollMagic.Scene({
+        triggerElement: ".topPin",
+        triggerHook: 0,
+        duration: "20%"
+})
+    .setPin(".topPin", {pushFollowers: false})
+    // .addIndicators({
+    //     indent: 400
+    // })
+    .addTo(controller);
+
+
+controller = new ScrollMagic.Controller();
+    var ourScene = new ScrollMagic.Scene({
+        triggerElement: "H1",
+        triggerHook: 0,
+        duration: "20%"
+})
+    .setPin("H1", {pushFollowers: false})
+    // .addIndicators({
+    //     indent: 500
+    // })
+    .addTo(controller);
+
+
+
+
+
+    
+$(".col-sm-4").each(function(){
+
+    controller = new ScrollMagic.Controller();
+    var ourScene = new ScrollMagic.Scene({
+        triggerElement: this
+
+    })
+    .setClassToggle(this, 'secondClass')
+    // .addIndicators({
+    //     indent: 200
+    // })
+    .addTo(controller);
+})
+
+
+
+var controller = new ScrollMagic.Controller();
+
+var tween = TweenMax.to("#money-bags", .5, {scale: 1.6, repeat: 1, yoyo: true});
+
+var scene = new ScrollMagic.Scene({triggerElement: "H2", duration: "75%"})
+                    .setTween(tween)
+                    // .addIndicators()
+                    .addTo(controller);
+
+
+

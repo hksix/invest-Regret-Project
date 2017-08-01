@@ -76,7 +76,15 @@ h1{
    border-radius: 50%;
    background-color: #4ABDAC ;
    font-size: 100px;
+   opacity: 0;
+   transform: translateY(50px);
+   transition: all 1s ease-out;
 
+}
+
+.header1.fade-in{
+    opacity: 1;
+    transform: translateY(0);
 }
 
 h4 {
@@ -101,6 +109,19 @@ h4 {
    
   
 }
+
+.col-sm-4 {
+    opacity: .0;
+    transform: translateX(50px);
+    transition: all 1s ease-out;
+
+}
+
+.col-sm-4.secondClass {
+    opacity: 1;
+    transform: translateX(0);
+}
+
 
 
 /*Third box.*/
