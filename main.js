@@ -30,7 +30,8 @@ $(document).ready(function() {
 $stockForm.on('submit',function (event){
     event.preventDefault();
     dataDict($dataKeyNameArr);
-    setUrl();
+    // setUrl();
+    getData();
     
 });
 function getCurrentDate(){
@@ -43,29 +44,33 @@ function getCurrentDate(){
     var today = year + "-" + month + "-" + day;       
     $("#inputDate2").attr("value", today);
 }
-function setUrl(arr){
-    var completeURL = "https://www.quandl.com/api/v3/datasets/WIKI/"+dataDict($dataKeyNameArr)['tickerName']+".json?column_index=4&start_date="+dataDict($dataKeyNameArr)['startDate']+"&end_date="+dataDict($dataKeyNameArr)['endDate']+'&api_key=YiNzVQcDRbgWz1L_khwj';
-    getData(completeURL);
-}
-
-function getData(URL){
-    var x = $.get(URL);
-    x.then( function (data){
-        $searchDataDict = data;
-        getSplitData();
-        console.log(data);
-        getCloseStartData();
-        getCloseEndData();
-         
-        });   
-}
-
 function dataDict(arr){
     var userInputDict ={};
     for (var i = 0; i< arr.length; i++){
         userInputDict[arr[i][0]] = arr[i][1].val();
     }
     return userInputDict;
+}
+
+// function setUrl(arr){
+//     var completeURL = "https://www.quandl.com/api/v3/datasets/WIKI/"+dataDict($dataKeyNameArr)['tickerName']+".json?column_index=4&start_date="+dataDict($dataKeyNameArr)['startDate']+"&end_date="+dataDict($dataKeyNameArr)['endDate']+'&api_key=YiNzVQcDRbgWz1L_khwj';
+//     getData(completeURL);
+// }
+
+function getData(URL){
+    var completeURL = "https://www.quandl.com/api/v3/datasets/WIKI/"+dataDict($dataKeyNameArr)['tickerName']+".json?column_index=4&start_date="+dataDict($dataKeyNameArr)['startDate']+"&end_date="+dataDict($dataKeyNameArr)['endDate']+'&api_key=YiNzVQcDRbgWz1L_khwj';
+    var x = $.get(completeURL);
+    x.catch(function (){
+        window.alert("404: Ticker Name Not Found - Please try again");
+    })
+    x.then( function (data){
+        $searchDataDict = data;
+        getSplitData();
+        // console.log(data);
+        // getCloseStartData();
+        // getCloseEndData();
+         
+        });   
 }
 
 function getSplitData(){
@@ -108,9 +113,7 @@ function unAdjustforSplit(){
     var adjustedStartPrice = combine.reduce(function (a,b){
         return a / b;
     });
-    console.log('unadjusted start Price' + adjustedStartPrice);
     return adjustedStartPrice;
-    
 }
 
 function hindsightAmount(){
@@ -141,7 +144,7 @@ function getDataPlots(list){
     for(var i = startofXAxis; i<=endOfXAxis; i++){
         x.push(i);
     }
-    console.log(x);
+    // console.log(x);
     var y= [];
 
     list['dataset']['data'].forEach(function (month){
@@ -155,6 +158,12 @@ function makeGraph(x,y){
 var largest = Math.max.apply(null, y);
     var options = {
         high: Number(largest),
+        axisX: {
+        // We can disable the grid for this axis
+            showGrid: true,
+    // and also don't show the label
+            showLabel: false
+        }
     };
     var data = {
       // A labels array that can contain any sort of values
@@ -164,6 +173,7 @@ var largest = Math.max.apply(null, y);
       series: [
         y
       ]
+    
     };
     new Chartist.Line('.ct-chart', data,options );
 }
@@ -251,6 +261,10 @@ Coin.prototype.getInfo= function(URL){
             this.startDate = data["Data"]["General"]['StartDate'];
         }.bind(this));
 }
+
+
+
+
 
 
 
