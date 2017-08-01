@@ -321,6 +321,243 @@ a:hover {
     text-decoration: none;
 }
 
+
+/*Animations: for main page.*/
+h1.main {
+  animation-duration: 0s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%; 
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+
+@media only screen and (min-width: 768px){
+h1.main {
+  animation-duration: 0s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%; 
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+h3.logo {
+    font-size: 40px;
+    padding-top: 10px;
+    margin-right: 10px;
+    display: block;
+    text-align: center;
+}
+
+.fourth-button .btn{
+    margin-left: 47%;
+    text-align: center;
+}
+
+/*HK start Monday  */
+#pg4-3-boxs{
+    text-align: center;
+}
+#twitter-handle{
+    text-align: center;
+}
+
+#coin-img-div{
+    display: flex;
+    justify-content: center;
+}
+#coin-img{
+    display: inline;
+    height: 60%;
+    width: 60%;
+}
+
+/*HK end Monday  */
+/*Resets padding.*/
+#tickername-start-end{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.col-md-4.crypto{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+/*Makes Net Worth amount larger. NEED TO CHANGE THIS!!!!!!*/
+#net-worth-circle-text{
+    font-size: 20px;
+}
+
+/*Resets amount padding.*/
+div.col-sm-6.amount{
+    padding-right: 0px;
+    padding-left: 0px;
+}
+/*Here's the anchor tags in the top. We can change what's showing up here, I just used
+those as place holders.*/
+a{
+    font-weight: 900;
+    color: #FC4A1A;
+    float: right;
+    font-size: 18px;
+    display: inline;
+    margin: 10px;
+    margin-top: 50px;
+    line-height: 38px;
+    font-style: bold;
+    font-family: 'Lato', sans-serif;
+}
+
+
+
+/*Styling for "Let's look up some prices."*/
+h1.main{
+    font-size: 60px;
+    padding-bottom: 0%;
+}
+
+.one{
+    padding-bottom: 8%;
+
+}
+
+
+h4 {
+   text-align: center;
+   color: white;
+   font-size: 2em;
+}
+
+.right {
+   color: white;
+   font-weight: 800;
+   text-align: center;
+   font-size: 1.5em;
+   
+  
+}
+
+/*Andrew*/
+.header1 {
+   text-align: right;
+   font-weight: 800;
+   font-family: 'Lato', sans-serif;
+   color: white;
+   border-radius: 50%;
+   background-color: #4ABDAC ;
+   font-size: 60px;
+   margin-right: 40px;
+
+}
+
+/*Third box.*/
+/*hk start  */
+.three{
+    background-color: #2461BF;
+    height: auto;
+    padding-top: 2%;
+    text-align: left;
+    font-weight: 800;
+    color: white;
+    font-size: 20px;
+    font-family: 'Lato', sans-serif;
+    
+}
+#image-pg3{
+    display: flex;
+    justify-content: center;
+    /* align-content: center; */
+}
+#money-bags{
+    /* clear: both; */
+    height: 60%;
+    width: 60%;
+    display: inline-block;
+}
+#networth-circle{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+/* Circle Text - the appearance of the text within the circle plus vertical centering */
+.circle_text
+{
+	/* change font/size/etc here */
+    /*////////////////////////////////////////*/
+	font: 11px;
+	
+	/* vertical centering technique */
+	position : relative;
+	top : 50%;
+	transform : translateY(-50%);
+}
+/*HK -end  */
+
+/*Lorem Ipsum underneath "Let's look up some prices." Andrew added a pOne class here.*/
+.pOne{
+    font-weight: 800;
+    color: white;
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    font-family: 'Lato', sans-serif;
+    display: inline-block;
+}
+
+/*Styling for the NASDAQ and CRYPTO headers.*/
+h2{
+    text-align: center;
+    font-size: 60px;
+    margin-right: 40px;
+}
+
+/*Styling for the button in the third box.*/
+.third-button .btn{
+    margin-left: 47%;
+    text-align: center;
+}
+
+/*Styling for the amount section.*/
+.col-sm-6{
+    margin-left: 25%;
+}
+
+.col-md-4.fourth{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+/*This needs to stay at the bottom of the page or it will overwrite the entire CSS.*/
+a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+
+@media only screen and (min-width: 1000px){
+
 /*Animations: for main page.*/
 h1.main {
   animation-duration: 4s;
@@ -339,8 +576,6 @@ h1.main {
   }
 }
 
-
-@media only screen and (min-width: 1000px){
 h3.logo {
     font-size: 50px;
     padding-top: 10px;
@@ -536,6 +771,3 @@ a:hover {
     color: white;
     text-decoration: none;
 }
-
-
-
