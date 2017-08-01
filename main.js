@@ -10,11 +10,9 @@ var $coinForm = $('[data-stock-order="form2"]');
 var $tickerName = $('[data-role="ticker-name"]');
 var $timeInterval = $('[data-role="time-interval"]');
 var $amountInvested = $('[data-role="amount-invested"]');
-// var $amountInvestedCoin = $('[data-role="amount-invested-coin"]');
 var $startDate = $('[data-role="start-date"]');
 var $endDate = $('[data-role="end-date"]');
 var $dataKeyNameArr = [ ['tickerName', $tickerName], 
-                        // ['timeInterval' , $timeInterval],
                         ['amountInvested' , $amountInvested],
                         ['startDate', $startDate],
                         ['endDate', $endDate],
@@ -58,9 +56,6 @@ function getData(URL){
         console.log(data);
         getCloseStartData();
         getCloseEndData();
-        // if ($startDate.val() === ""){
-        // $startDate.text($data["dataset"]['data'][xlength-1][0]);
-        // }  
          
         });   
 }
@@ -81,22 +76,10 @@ var URL = "https://www.quandl.com/api/v3/datasets/WIKI/"+dataDict($dataKeyNameAr
         unAdjustforSplit();
         hindsightAmount();
         getGraphData();
-        // console.log(data);
         return data;
-        
-        // splitCounter()
-        // setTimeout(unAdjustforSplit(),3000);
     });
-    
 }
-// fucntion getFormatedData(URL){
-//     return $.get(URL);
-//         .then( function  (data){
-//             return data.filter(blahdahd)
-//         })
-// }
-// getFormatedData(dad)
-//     .then
+
 function getCloseStartData(){
      var x = $searchDataDict.dataset.data.length;
      return $searchDataDict["dataset"]['data'][x-1][1];
