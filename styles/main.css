@@ -386,8 +386,8 @@ h3.logo {
 }
 #coin-img{
     display: inline;
-    height: 60%;
-    width: 60%;
+    height: 30%;
+    width: 30%;
 }
 
 /*HK end Monday  */
@@ -489,8 +489,8 @@ h4 {
 }
 #money-bags{
     /* clear: both; */
-    height: 60%;
-    width: 60%;
+    height: 30%;
+    width: 30%;
     display: inline-block;
 }
 #networth-circle{
