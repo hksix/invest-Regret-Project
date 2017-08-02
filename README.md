@@ -28,6 +28,7 @@ We provide users with information regarding the NASDAQ, NYSE, Bitcoins and Ether
 * Add more crypto currencies
 * Add start date feature for crypto currency.
 * Implement more advanced scrollmagic and greensock techniques. 
+* Add predictive text for Nasdaq ticker name.
 
 
 ## Built With
