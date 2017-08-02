@@ -66,9 +66,7 @@ function getData(URL){
     x.then( function (data){
         $searchDataDict = data;
         getSplitData();
-        // console.log(data);
-        // getCloseStartData();
-        // getCloseEndData();
+
          
         });   
 }
@@ -138,8 +136,7 @@ function hindsightAmount(){
     worth = Number(worth.toFixed(2));
     $('#net-worth-circle-text').text("$"+worth);
     // console.log((dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit()) *(getCloseEndData()));
-    return worth;
-    // return(dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit()) *(getCloseEndData()); 
+
     
 }
 function getGraphData(){
@@ -283,3 +280,4 @@ Coin.prototype.getInfo= function(URL){
             this.startDate = data["Data"]["General"]['StartDate'];
         }.bind(this));
 }
+

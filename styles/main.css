@@ -132,6 +132,7 @@ h4 {
 
 /*Third box.*/
 
+
 #image-pg3{
     display: flex;
     justify-content: center;
@@ -218,7 +219,26 @@ h4 {
     color: white;
     font-size: 20px;
     font-family: 'Lato', sans-serif;
+    padding-bottom: 10%;
 }
+/*HK start Monday  */
+#pg4-3-boxs{
+    text-align: center;
+}
+#twitter-handle{
+    text-align: center;
+}
+#coin-img-div{
+    display: flex;
+    justify-content: center;
+}
+#coin-img{
+    
+    height: 60%;
+    width: 60%;
+}
+/*HK end Monday  */
+
 
 /*Fifth box.*/
 #five{
