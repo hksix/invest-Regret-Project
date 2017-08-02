@@ -328,12 +328,6 @@ $("H2").each(function(){
 })
 
 
-// var controller = new ScrollMagic.Controller();
-// var tween = TweenMax.to("#money-bags", .5, {scale: 1.6, repeat: 1, yoyo: true});
-// var scene = new ScrollMagic.Scene({triggerElement: "H2", duration: "75%"})
-//    .setTween(tween)
-                 
-//    .addTo(controller);
 
 var controller = new ScrollMagic.Controller();
 var tween = TweenMax.to("#money-bag", .5, {scale: 1.6, repeat: 1, yoyo: true});
