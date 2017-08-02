@@ -1,4 +1,4 @@
-Invest Regret
+### Invest Regret
 
 
 Ever regretted not investing? Invest Regret utilizes API's in order to calculate net worth based on your investment.
@@ -39,6 +39,15 @@ We provide users with information regarding the NASDAQ, NYSE, Bitcoins and Ether
 * Chartist.js
 * Jquery
 * Greensock.js
+
+### Contributing
+
+* Fork it
+* Create your feature branch: git checkout -b my-new-feature
+* Commit your changes: git commit -am 'Add some feature'
+* Push to the branch: git push origin my-new-feature
+* Submit a pull request :D
+
 
 ## Authors
 
