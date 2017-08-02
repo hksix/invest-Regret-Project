@@ -78,7 +78,7 @@ var URL = "https://www.quandl.com/api/v3/datasets/WIKI/"+dataDict($dataKeyNameAr
     return $.get(URL)
         .then( function (data){
         $splitDataArr= data;
-        unAdjustforSplit();
+        // unAdjustforSplit();
         hindsightAmount();
         getGraphData();
         return data;
@@ -86,8 +86,12 @@ var URL = "https://www.quandl.com/api/v3/datasets/WIKI/"+dataDict($dataKeyNameAr
 }
 
 function getCloseStartData(){
+    var dateNPrice = {};
      var x = $searchDataDict.dataset.data.length;
-     return $searchDataDict["dataset"]['data'][x-1][1];
+     dateNPrice[$searchDataDict["dataset"]['data'][x-1]] = $searchDataDict["dataset"]['data'][x-1][1];
+     console.log(dateNPrice);
+    //  return $searchDataDict["dataset"]['data'][x-1][1];
+
 }
 function getCloseEndData(){
     $('#current-price-box').text("Current Price: "+"$"+ $searchDataDict["dataset"]["data"][0][1])
@@ -95,19 +99,32 @@ function getCloseEndData(){
 }
 function splitCounter(){
     var splitCount=[];
+    var splitDates=[];
     for (var i = 0; i<$splitDataArr["dataset"]["data"].length;i++){
         if($splitDataArr["dataset"]["data"][i][1] > 1 ){
             splitCount.push($splitDataArr["dataset"]["data"][i][1]);
+            splitDates.push({key: $splitDataArr["dataset"]["data"][i], value: $splitDataArr["dataset"]["data"][i][1]} );
         }
     }
+    // console.log(splitDates);
     $('#split-share-box').text(dataDict($dataKeyNameArr)['tickerName'] +" has split " +splitCount.length + " times since you bought in.");
-
+    
     return splitCount;
     
 }
-function unAdjustforSplit(){
+// function unAdjustforSplit(){
+//     // var splitarr = splitCounter();
+//     var startPrice = getCloseStartData();
+//     var combine = splitCounter();
+//     combine.unshift(startPrice);
+//     var adjustedStartPrice = combine.reduce(function (a,b){
+//         return a / b;
+//     });
+//     return adjustedStartPrice;
+// }
+function unAdjustforSplit1(start){
     // var splitarr = splitCounter();
-    var startPrice = getCloseStartData();
+    var startPrice = start;
     var combine = splitCounter();
     combine.unshift(startPrice);
     var adjustedStartPrice = combine.reduce(function (a,b){
@@ -117,11 +134,12 @@ function unAdjustforSplit(){
 }
 
 function hindsightAmount(){
-    var worth = (dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit()) *(getCloseEndData());
+    var worth = (dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit1(getCloseStartData())) *(getCloseEndData());
     worth = Number(worth.toFixed(2));
     $('#net-worth-circle-text').text("$"+worth);
     // console.log((dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit()) *(getCloseEndData()));
-    return(dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit()) *(getCloseEndData()); 
+    return worth;
+    // return(dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit()) *(getCloseEndData()); 
     
 }
 function getGraphData(){
@@ -130,6 +148,8 @@ function getGraphData(){
     $.get(URL)
         .then(function(data) {
             temp = data;
+            // unAdjustforSplit1(data)
+            console.log(temp)
             getDataPlots(data)
             });
         
@@ -148,7 +168,9 @@ function getDataPlots(list){
     var y= [];
 
     list['dataset']['data'].forEach(function (month){
-    y.push(month[1]);
+    y.push(unAdjustforSplit1(month[1]));
+    // y.push(month[1]);
+
 
     });
  
@@ -261,5 +283,3 @@ Coin.prototype.getInfo= function(URL){
             this.startDate = data["Data"]["General"]['StartDate'];
         }.bind(this));
 }
-
-
