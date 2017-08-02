@@ -19,52 +19,56 @@
     <header>
         <div class="container">
             <div class="row">
-                <a href>CONTACT</a>
-                <a href>THINKING</a>
-                <a href>US</a>
-                <a href>WORK</a>
-                <h3>Invest Regret<span style="color:#FC4A1A;">.</span></h3>
+                <a href="mailto:Investregret@gmail.com">CONTACT</a>
+                <a href="#five">INFO</a>
+                <a href>TEAM</a>
+                <a target="blank" href="https://github.com/hksix/invest-Regret-Project">GITHUB</a>
+                <h3 class="logo">Invest Regret<span style="color:#FC4A1A;">.</span></h3>
             </div>
         </div>
     </header>
+    
     <div class="one">
         <canvas id="canvas-radial"></canvas>
         <div class="container">
             <div class="row">
-                <h1>Let's look up some prices.</h1>
+                <h1 class="main" option value="right">Let's look up some prices.</h1>
                 <!--This has a div class of pOne now per Andrew.-->
 
-                    <p class= "pOne">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut facilis mollitia doloremque, quos autem quo aliquam voluptatum laudantium, nobis repudiandae eius nostrum! Nemo, doloribus, libero. Iste ab maiores perferendis dignissimos.</p>
-                        <div class="top-button">
-                            <button type="button" class="btn btn-primary btn-lg">CLICK HERE!</button>
+                    <p class="pOne">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut facilis mollitia doloremque, quos autem quo aliquam voluptatum laudantium, nobis repudiandae eius nostrum! Nemo, doloribus, libero. Iste ab maiores perferendis dignissimos.</p>
+                        <div class="top-button"> 
+                                <!--<a href="#two">-->
+                                    <button type="button" class="btn btn-primary btn-lg">CLICK HERE!</button>
+                                <!--</a>-->
                         </div>
+                        
             </div>
         </div>
     </div>
     
     <div class="two">
+       <!-- <div class="container"> -->
+            <div class="row"> 
+               <h2 >Invest Regret</h2>
+            </div> 
+        <!-- </div>  -->
        <div class="container">
            <div class="row">
-               <h1 class="header1">Invest/Regret</h3>
-           </div>
-       </div>
-       <div class="container">
-           <div class="row">
                <div class="col-sm-4">
-                   <h4>Nasdaq</h4>
-                       <p class="left">The Nasdaq Stock Market is an American stock exchange. It is the second-largest exchange in the world by market capitalization, behind only the New York Stock Exchange</p></div>
+                   <h4>Hindsight 20/20</h4>
+                       <p class="left">We understand your predicament. Investing in new companies is a huge risk and the market is like a giant slot machine. You may think you have a better chance playing the lottery than investing in a small company on the hopes that one day they will make it. Well, we are here to change your mind.</p></div>
+               <div class="col-md-4" id="image-pg2">
+                   <img src="/Users/hamzahaseeb/DigitalCrafts-06-2017/JavaScript101/invest Regret Project/sad.svg" class="center-block
+                   img-responsive" id="money-bags"></div>
                <div class="col-sm-4">
-                   <img src="logo/moneyTree.png" class="center-block
-                   img-responsive"></div>
-               <div class="col-sm-4">
-                   <h4>Crypro Currency</h4>
-                       <p class="right">A digital currency in which encryption techniques are used to regulate the generation of units of currency and verify the transfer of funds, operating independently of a central bank.</p></div>
+                   <h4>History will repeat itself unless....</h4>
+                       <p class="right">Using a bright colored website, we show you what your net-worth could've been if you invested in the market. This is a tool for you to see how a little investment could've changed your life.</p></div>
            </div>
        </div>
    </div>
     
     <div class="three">
-        <h2>NASDAQ</h2>
+        <h2>STOCKS</h2>
         <form data-stock-order="form1">
             <div class="container">
                 <div class="row" id="3pgcontiner3">
@@ -73,8 +77,7 @@
                             <div class="col-sm-10">
                                 <div class="form-group">  
                                     <label for="ticker" class="control-label">TICKER NAME</label>
-                                    <input class="form-control" name="ticker" id="tickerName" data-role="ticker-name" required>
-                                </div>  
+
                             </div>    
                             <div class="col-sm-10">
                                 <div class="form-group">
@@ -115,7 +118,7 @@
             <div class="form-group">
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class=" col-sm-6 amount">
                             <label for="amount-invested c2">AMOUNT</label>
                             <div class="input-group"> 
                                 <span class="input-group-addon">$</span> 
@@ -131,14 +134,14 @@
                     </div>
                 </div>
             </div>
-            <div class="container-fluid"> 
+            <div class="container-fluid bottom"> 
                 <div class="row"> 
                     <div class='third-page-boxes'>
-                        <div class="ct-chart col-xs-6 col-md-4"></div>
-                        <div class='split-share-count col-xs-6 col-md-4'>
+                        <div class="ct-chart col-xs-12 col-md-4"></div>
+                        <div class='split-share-count col-xs-12 col-md-4'>
                             <h4 id="split-share-box"></h4>
                         </div>
-                        <div class='current-price col-xs-6 col-md-4'>
+                        <div class='current-price col-xs-12 col-md-4'>
                             <h4 id='current-price-box'></h4>
                         </div> 
                     </div>
@@ -149,12 +152,13 @@
     <!-- This fixes border for container three.-->
      
 
-    <div class="four">
+
+        <div class="four">
         <h2>CRYPTO</h2>
         <form data-stock-order="form2">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4">
+
                         <div class="row">
                             <div class="col-md-10">
                                 <div class="form-group">
@@ -208,21 +212,12 @@
             <div class="container-fluid"id='pg4-3-boxs'>
                 <div class="row">
                     <div class="fourth-page-3">
-                        <div class='col-xs-6 col-md-4'>
-                            <div class="row">
-                                <div class='col-xs-6 col-md-12'>
+
                                     <h4 id='coin-start-date'></h4>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class='col-xs-6 col-md-12'></div>
-                                <h4 id="coin-price"></h4>
-                            </div>
-                        </div>
-                        <div class='col-xs-6 col-md-4'id='coin-img-div'>
-                            <img id='coin-img'>
-                        </div>
-                        <div class='col-xs-6 col-md-4'>
+
                             <span id="coin-info"></span>
                         </div>
                     </div>
@@ -235,12 +230,16 @@
             </div>
         </form>
     </div>
-    <div class="five">
-        <div class="container">
-                <div class="row"> 
-                </div>
+        <div id="five">
+            <div class="container">
+                    <div class="row">
+                        <div class="bottom-button">
+                            <button type="button" class="btn btn-primary btn-lg">LEARN MORE</button>
+                        </div>
+                    </div>
+            </div>
         </div>
-    </div>
+
         
     
     <script
@@ -251,3 +250,5 @@
     <script src="main.js" charset="utf-8"></script>
 </body>
 </html>
+
+<!--Most recent-->

@@ -30,7 +30,8 @@ $(document).ready(function() {
 $stockForm.on('submit',function (event){
     event.preventDefault();
     dataDict($dataKeyNameArr);
-    setUrl();
+    // setUrl();
+    getData();
     
 });
 function getCurrentDate(){
@@ -43,23 +44,6 @@ function getCurrentDate(){
     var today = year + "-" + month + "-" + day;       
     $("#inputDate2").attr("value", today);
 }
-function setUrl(arr){
-    var completeURL = "https://www.quandl.com/api/v3/datasets/WIKI/"+dataDict($dataKeyNameArr)['tickerName']+".json?column_index=4&start_date="+dataDict($dataKeyNameArr)['startDate']+"&end_date="+dataDict($dataKeyNameArr)['endDate']+'&api_key=YiNzVQcDRbgWz1L_khwj';
-    getData(completeURL);
-}
-
-function getData(URL){
-    var x = $.get(URL);
-    x.then( function (data){
-        $searchDataDict = data;
-        getSplitData();
-        console.log(data);
-        getCloseStartData();
-        getCloseEndData();
-         
-        });   
-}
-
 function dataDict(arr){
     var userInputDict ={};
     for (var i = 0; i< arr.length; i++){
@@ -68,12 +52,31 @@ function dataDict(arr){
     return userInputDict;
 }
 
+// function setUrl(arr){
+//     var completeURL = "https://www.quandl.com/api/v3/datasets/WIKI/"+dataDict($dataKeyNameArr)['tickerName']+".json?column_index=4&start_date="+dataDict($dataKeyNameArr)['startDate']+"&end_date="+dataDict($dataKeyNameArr)['endDate']+'&api_key=YiNzVQcDRbgWz1L_khwj';
+//     getData(completeURL);
+// }
+
+function getData(URL){
+    var completeURL = "https://www.quandl.com/api/v3/datasets/WIKI/"+dataDict($dataKeyNameArr)['tickerName']+".json?column_index=4&start_date="+dataDict($dataKeyNameArr)['startDate']+"&end_date="+dataDict($dataKeyNameArr)['endDate']+'&api_key=YiNzVQcDRbgWz1L_khwj';
+    var x = $.get(completeURL);
+    x.catch(function (){
+        window.alert("404: Ticker Name Not Found - Please try again");
+    })
+    x.then( function (data){
+        $searchDataDict = data;
+        getSplitData();
+
+         
+        });   
+}
+
 function getSplitData(){
 var URL = "https://www.quandl.com/api/v3/datasets/WIKI/"+dataDict($dataKeyNameArr)['tickerName']+".json?column_index=7&start_date="+dataDict($dataKeyNameArr)['startDate']+"&end_date="+dataDict($dataKeyNameArr)['endDate']+'&api_key=YiNzVQcDRbgWz1L_khwj';
     return $.get(URL)
         .then( function (data){
         $splitDataArr= data;
-        unAdjustforSplit();
+        // unAdjustforSplit();
         hindsightAmount();
         getGraphData();
         return data;
@@ -81,8 +84,12 @@ var URL = "https://www.quandl.com/api/v3/datasets/WIKI/"+dataDict($dataKeyNameAr
 }
 
 function getCloseStartData(){
+    var dateNPrice = {};
      var x = $searchDataDict.dataset.data.length;
-     return $searchDataDict["dataset"]['data'][x-1][1];
+     dateNPrice[$searchDataDict["dataset"]['data'][x-1]] = $searchDataDict["dataset"]['data'][x-1][1];
+     console.log(dateNPrice);
+    //  return $searchDataDict["dataset"]['data'][x-1][1];
+
 }
 function getCloseEndData(){
     $('#current-price-box').text("Current Price: "+"$"+ $searchDataDict["dataset"]["data"][0][1])
@@ -90,35 +97,46 @@ function getCloseEndData(){
 }
 function splitCounter(){
     var splitCount=[];
+    var splitDates=[];
     for (var i = 0; i<$splitDataArr["dataset"]["data"].length;i++){
         if($splitDataArr["dataset"]["data"][i][1] > 1 ){
             splitCount.push($splitDataArr["dataset"]["data"][i][1]);
+            splitDates.push({key: $splitDataArr["dataset"]["data"][i], value: $splitDataArr["dataset"]["data"][i][1]} );
         }
     }
+    // console.log(splitDates);
     $('#split-share-box').text(dataDict($dataKeyNameArr)['tickerName'] +" has split " +splitCount.length + " times since you bought in.");
-
+    
     return splitCount;
     
 }
-function unAdjustforSplit(){
+// function unAdjustforSplit(){
+//     // var splitarr = splitCounter();
+//     var startPrice = getCloseStartData();
+//     var combine = splitCounter();
+//     combine.unshift(startPrice);
+//     var adjustedStartPrice = combine.reduce(function (a,b){
+//         return a / b;
+//     });
+//     return adjustedStartPrice;
+// }
+function unAdjustforSplit1(start){
     // var splitarr = splitCounter();
-    var startPrice = getCloseStartData();
+    var startPrice = start;
     var combine = splitCounter();
     combine.unshift(startPrice);
     var adjustedStartPrice = combine.reduce(function (a,b){
         return a / b;
     });
-    console.log('unadjusted start Price' + adjustedStartPrice);
     return adjustedStartPrice;
-    
 }
 
 function hindsightAmount(){
-    var worth = (dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit()) *(getCloseEndData());
+    var worth = (dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit1(getCloseStartData())) *(getCloseEndData());
     worth = Number(worth.toFixed(2));
     $('#net-worth-circle-text').text("$"+worth);
     // console.log((dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit()) *(getCloseEndData()));
-    return(dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit()) *(getCloseEndData()); 
+
     
 }
 function getGraphData(){
@@ -127,6 +145,8 @@ function getGraphData(){
     $.get(URL)
         .then(function(data) {
             temp = data;
+            // unAdjustforSplit1(data)
+            console.log(temp)
             getDataPlots(data)
             });
         
@@ -141,11 +161,13 @@ function getDataPlots(list){
     for(var i = startofXAxis; i<=endOfXAxis; i++){
         x.push(i);
     }
-    console.log(x);
+    // console.log(x);
     var y= [];
 
     list['dataset']['data'].forEach(function (month){
-    y.push(month[1]);
+    y.push(unAdjustforSplit1(month[1]));
+    // y.push(month[1]);
+
 
     });
  
@@ -155,6 +177,12 @@ function makeGraph(x,y){
 var largest = Math.max.apply(null, y);
     var options = {
         high: Number(largest),
+        axisX: {
+        // We can disable the grid for this axis
+            showGrid: true,
+    // and also don't show the label
+            showLabel: false
+        }
     };
     var data = {
       // A labels array that can contain any sort of values
@@ -164,6 +192,7 @@ var largest = Math.max.apply(null, y);
       series: [
         y
       ]
+    
     };
     new Chartist.Line('.ct-chart', data,options );
 }
@@ -251,10 +280,4 @@ Coin.prototype.getInfo= function(URL){
             this.startDate = data["Data"]["General"]['StartDate'];
         }.bind(this));
 }
-
-
-
-
-
-
 
