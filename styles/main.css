@@ -18,10 +18,29 @@ h3.logo {
     padding-right: 80px;
 }
 
+div.col-sm-4.middle{
+    text-align: center;
+}
+
 .col-md-4.fourth{
     padding-left: 80px;
     padding-right: 80px;
 }
+
+   .col-sm-4{
+    opacity: 0;
+   transform: translateY(50px);
+   transition: all 1s ease-out;
+}   
+   .col-sm-4.secondClass{
+    opacity: 1;
+   transform: translateX(0);
+}    
+
+ /* .col-sm-4.secondClass{
+    opacity: 1;
+   transform: translateX(0);
+}  */
 
 /*Makes Net Worth amount larger*/
 #net-worth-circle-text{
@@ -71,7 +90,7 @@ h1.main{
     background-color: #F7B733;
     height: auto;
     text-align: center;
-    padding-bottom: 60%;
+    padding-bottom: 20%;
     font-family: 'Lato', sans-serif;
 
 }
@@ -80,6 +99,7 @@ h1.main{
 .two{
     background-color: #4ABDAC;
     height: auto;
+    padding-bottom: 10%;
     font-family: 'Lato', sans-serif;
 }
 
@@ -90,7 +110,14 @@ h1.main{
    border-radius: 50%;
    background-color: #4ABDAC ;
    font-size: 40px;
+   opacity: 0;
+   transform: translateY(50px);
+   transition: all 1s ease-out;
+}
 
+.header1.fade-in{
+    opacity:1;
+    transform: translateY(0);
 }
 /*hk start  */
 .three{
@@ -129,6 +156,10 @@ h4 {
   
 }
 
+#image-pg2{
+    display: flex;
+    justify-content: center;
+}
 
 /*Third box.*/
 
@@ -213,7 +244,7 @@ h4 {
     background-color: #4D20A4;
     height: auto;
     padding-top: 2%;
-    text-align: left;
+    text-align: left; 
     font-weight: 800;
     color: white;
     font-size: 20px;
@@ -232,25 +263,41 @@ h4 {
 
 /*Lorem Ipsum underneath "Let's look up some prices." Andrew added a pOne class here.*/
 .pOne{
-    display: none;
+    /* display: none; */
+    font-weight: 800; 
+    color: white;
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    font-family: 'Lato', sans-serif;
+    display: inline-block;
+    font-size: 17px;
 }
 
 /*Styling for the NASDAQ and CRYPTO headers.*/
 h2{
-    text-align: center;
+    text-align: right;
     font-weight: 800;
     font-size: 40px;
     font-family: 'Lato', sans-serif;
+    color: white;
+    transition: all 1s ease-out;
+}
 
+h2.finish{
+    text-align: right;
+    transform: translate(.05%);
+    padding-right: 105px;
 }
 
 #coin-net-worth-circle-text{
     font-size: 20px;
 }
 
-.col-xs-6 col-md-4 inline{
+/* .col-xs-6 col-md-4 inline{
     display: inline-block;
-}
+} */
 
 /*Styling for the top button.*/
 .top-button .btn {
@@ -289,6 +336,8 @@ h2{
 
 /*Styling for the button in the fourth div.*/
 .fourth-button .btn{
+     display: flex;
+    justify-content: center; 
     background-color: #FAA614;
     color: white;
     font-weight: 800;
@@ -342,21 +391,19 @@ h1.main {
 
 
 @media only screen and (min-width: 768px){
-h1.main {
-  animation-duration: 0s;
-  animation-name: slidein;
+
+
+h2.finish{
+    transform: translate(.05%);
+    padding-right: 105px;
 }
-
-@keyframes slidein {
-  from {
-    margin-left: 100%;
-    width: 300%; 
-  }
-
-  to {
-    margin-left: 0%;
-    width: 100%;
-  }
+h2{
+    text-align: right;
+    font-weight: 800;
+    font-size: 40px;
+    font-family: 'Lato', sans-serif;
+    color: white;
+    transition: all 1s ease-out;
 }
 
 h3.logo {
@@ -466,6 +513,7 @@ h4 {
    background-color: #4ABDAC ;
    font-size: 60px;
    margin-right: 40px;
+   text-align: center;
 
 }
 
@@ -516,19 +564,20 @@ h4 {
 
 /*Lorem Ipsum underneath "Let's look up some prices." Andrew added a pOne class here.*/
 .pOne{
-    font-weight: 800;
-    color: white;
+     font-weight: 800; 
+    color: #FC4A1A;
     padding-left: 200px;
     padding-right: 200px;
     padding-bottom: 50px;
     padding-top: 50px;
     font-family: 'Lato', sans-serif;
     display: inline-block;
+    font-size: 17px;
 }
 
 /*Styling for the NASDAQ and CRYPTO headers.*/
 h2{
-    text-align: center;
+    text-align: right;
     font-size: 60px;
     margin-right: 40px;
 }
@@ -545,8 +594,8 @@ h2{
 }
 
 .col-md-4.fourth{
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 80px;
+    /* padding-right: 80px; */
 }
 
 /*This needs to stay at the bottom of the page or it will overwrite the entire CSS.*/
@@ -560,7 +609,7 @@ a:hover {
 
 /*Animations: for main page.*/
 h1.main {
-  animation-duration: 4s;
+  animation-duration: 0s;
   animation-name: slidein;
 }
 
@@ -772,4 +821,4 @@ a:hover {
     text-decoration: none;
 }
 
-/*Most recent*/
+/*Most recent2*/

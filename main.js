@@ -30,7 +30,6 @@ $(document).ready(function() {
 $stockForm.on('submit',function (event){
     event.preventDefault();
     dataDict($dataKeyNameArr);
-    // setUrl();
     getData();
     
 });
@@ -52,10 +51,6 @@ function dataDict(arr){
     return userInputDict;
 }
 
-// function setUrl(arr){
-//     var completeURL = "https://www.quandl.com/api/v3/datasets/WIKI/"+dataDict($dataKeyNameArr)['tickerName']+".json?column_index=4&start_date="+dataDict($dataKeyNameArr)['startDate']+"&end_date="+dataDict($dataKeyNameArr)['endDate']+'&api_key=YiNzVQcDRbgWz1L_khwj';
-//     getData(completeURL);
-// }
 
 function getData(URL){
     var completeURL = "https://www.quandl.com/api/v3/datasets/WIKI/"+dataDict($dataKeyNameArr)['tickerName']+".json?column_index=4&start_date="+dataDict($dataKeyNameArr)['startDate']+"&end_date="+dataDict($dataKeyNameArr)['endDate']+'&api_key=YiNzVQcDRbgWz1L_khwj';
@@ -66,10 +61,6 @@ function getData(URL){
     x.then( function (data){
         $searchDataDict = data;
         getSplitData();
-        // console.log(data);
-        // getCloseStartData();
-        // getCloseEndData();
-         
         });   
 }
 
@@ -85,16 +76,11 @@ var URL = "https://www.quandl.com/api/v3/datasets/WIKI/"+dataDict($dataKeyNameAr
     });
 }
 
-function getCloseStartData(){
-    // var dateNPrice = {};
+function getCloseStartData(){   
      var x = $searchDataDict.dataset.data.length;
-    //  dateNPrice[$searchDataDict["dataset"]['data'][x-1]] = $searchDataDict["dataset"]['data'][x-1][1];
-    //  console.log(dateNPrice);
      return $searchDataDict["dataset"]['data'][x-1][1];
-
 }
 function getCloseEndData(){
-    $('#current-price-box').text("Current Price: "+"$"+ $searchDataDict["dataset"]["data"][0][1])
      return $searchDataDict["dataset"]["data"][0][1];
 }
 function splitCounter(){
@@ -103,27 +89,12 @@ function splitCounter(){
     for (var i = 0; i<$splitDataArr["dataset"]["data"].length;i++){
         if($splitDataArr["dataset"]["data"][i][1] > 1 ){
             splitCount.push($splitDataArr["dataset"]["data"][i][1]);
-            // splitDates.push({key: $splitDataArr["dataset"]["data"][i], value: $splitDataArr["dataset"]["data"][i][1]} );
         }
     }
-    // console.log(splitDates);
-    $('#split-share-box').text(dataDict($dataKeyNameArr)['tickerName'] +" has split " +splitCount.length + " times since you bought in.");
-    
     return splitCount;
-    
 }
-// function unAdjustforSplit(){
-//     // var splitarr = splitCounter();
-//     var startPrice = getCloseStartData();
-//     var combine = splitCounter();
-//     combine.unshift(startPrice);
-//     var adjustedStartPrice = combine.reduce(function (a,b){
-//         return a / b;
-//     });
-//     return adjustedStartPrice;
-// }
-function unAdjustforSplit1(start){
-    // var splitarr = splitCounter();
+
+function unAdjustforSplit(start){
     var startPrice = start;
     var combine = splitCounter();
     combine.unshift(startPrice);
@@ -134,22 +105,23 @@ function unAdjustforSplit1(start){
 }
 
 function hindsightAmount(){
-    var worth = (dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit1(getCloseStartData())) *(getCloseEndData());
+    var worth = (dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit(getCloseStartData())) *(getCloseEndData());
     worth = Number(worth.toFixed(2));
-    $('#net-worth-circle-text').text("$"+worth);
-    // console.log((dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit()) *(getCloseEndData()));
     return worth;
-    // return(dataDict($dataKeyNameArr)['amountInvested'] / unAdjustforSplit()) *(getCloseEndData()); 
-    
 }
+
+function setToScreen(){
+    $('#net-worth-circle-text').text("$"+hindsightAmount());
+    $('#split-share-box').text(dataDict($dataKeyNameArr)['tickerName'] +" has split " +splitCounter().length + " times since you bought in.");
+    $('#current-price-box').text("Current Price: "+"$"+ getCloseEndData());
+}
+
 function getGraphData(){
-    var temp=[];
     var URL = 'https://www.quandl.com/api/v3/datasets/WIKI/'+dataDict($dataKeyNameArr)['tickerName']+'?&collapse=annual&column_index=4&api_key=YiNzVQcDRbgWz1L_khwj';
     $.get(URL)
         .then(function(data) {
-            temp = data;
-            console.log(temp)
             getDataPlots(data)
+            setToScreen()
             });
         
 }       
@@ -163,7 +135,6 @@ function getDataPlots(list){
     for(var i = startofXAxis; i<=endOfXAxis; i++){
         x.push(i);
     }
-    // console.log(x);
     var y= [];
     var comp = list['dataset']['data'];
 
@@ -172,7 +143,7 @@ function getDataPlots(list){
     var remd = comp.slice(0,comp.length/2);
     remd = remd.reverse();
     first5.forEach(function (month){   
-        y.push(unAdjustforSplit1(month[1]));
+        y.push(unAdjustforSplit(month[1]));
     });
     remd.forEach(function (month){
         y.push(month[1]);
@@ -289,7 +260,85 @@ Coin.prototype.getInfo= function(URL){
 
 
 
+// / Scroll magic
+$(document).ready(function(){
+   var controller = new ScrollMagic.Controller();
+   var ourScene = new ScrollMagic.Scene({
+       triggerElement: ".header1"
+
+  })
+   .setClassToggle('.header1', 'fade-in')
+   // .addIndicators()
+   .addTo(controller)
+})
+
+   var controller = new ScrollMagic.Controller();
+    var ourScene = new ScrollMagic.Scene({
+       triggerElement: ".topPin",
+       triggerHook: 0,
+       duration: "20%"
+})
+   .setPin(".topPin", {pushFollowers: false})
+   // .addIndicators({
+   //     indent: 400
+
+ 
+   .addTo(controller);
+   var controller = new ScrollMagic.Controller();
+   var ourScene = new ScrollMagic.Scene({
+       triggerElement: ".main",
+       triggerHook: 0,
+       duration: "20%"
+})
+   .setPin(".main", {pushFollowers: false})
+   // .addIndicators({
+   //     indent: 500
+   // })
+   .addTo(controller);
+$(".col-sm-4").each(function(){
+
+  var controller = new ScrollMagic.Controller();
+   var ourScene = new ScrollMagic.Scene({
+       triggerElement: this
+
+  })
+   .setClassToggle(this, 'secondClass')
+   // .addIndicators({
+   //     indent: 200
+   // })
+   .addTo(controller);
+})
 
 
 
+
+$("H2").each(function(){
+
+  var controller = new ScrollMagic.Controller();
+   var ourScene = new ScrollMagic.Scene({
+       triggerElement: this
+      
+
+  })
+   .setClassToggle(this, 'finish')
+   // .addIndicators({
+   //     indent: 200
+   // })
+   .addTo(controller);
+})
+
+
+// var controller = new ScrollMagic.Controller();
+// var tween = TweenMax.to("#money-bags", .5, {scale: 1.6, repeat: 1, yoyo: true});
+// var scene = new ScrollMagic.Scene({triggerElement: "H2", duration: "75%"})
+//    .setTween(tween)
+                 
+//    .addTo(controller);
+
+var controller = new ScrollMagic.Controller();
+var tween = TweenMax.to("#money-bag", .5, {scale: 1.6, repeat: 1, yoyo: true});
+var scene = new ScrollMagic.Scene({triggerElement: "H2", duration: "75%"})
+   .setTween(tween)
+                 
+   .addTo(controller);
 

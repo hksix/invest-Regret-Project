@@ -17,11 +17,10 @@
 <body>
     
     <header>
-        <div class="container">
+        <div class="container topPin">
             <div class="row">
                 <a href="mailto:Investregret@gmail.com">CONTACT</a>
-                <a href>THINKING</a>
-                <a href>US</a>
+                <a href>TEAM</a>
                 <a target="blank" href="https://github.com/hksix/invest-Regret-Project">WORK</a>
                 <h3 class="logo">Invest Regret<span style="color:#FC4A1A;">.</span></h3>
             </div>
@@ -35,10 +34,10 @@
                 <h1 class="main" option value="right">Let's look up some prices.</h1>
                 <!--This has a div class of pOne now per Andrew.-->
 
-                    <p class= "pOne">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut facilis mollitia doloremque, quos autem quo aliquam voluptatum laudantium, nobis repudiandae eius nostrum! Nemo, doloribus, libero. Iste ab maiores perferendis dignissimos.</p>
-                        <div class="top-button">
+                    <p class= "pOne">Ever regretted not investing? Invest Regret utilizes API's in order to calculate net worth based on your investment. We provide users with information regarding the NASDAQ, NYSE, Bitcoins and Etherium based on when an investment was placed.</p>
+                        <!-- <div class="top-button">
                             <button type="button" class="btn btn-primary btn-lg">CLICK HERE!</button>
-                        </div>
+                        </div> -->
             </div>
         </div>
     </div>
@@ -46,7 +45,7 @@
     <div class="two">
        <!-- <div class="container"> -->
             <div class="row"> 
-               <h2 >Invest Regret</h2>
+               <h2 class="header1" >Invest Regret</h2>
             </div> 
         <!-- </div>  -->
        <div class="container">
@@ -54,9 +53,8 @@
                <div class="col-sm-4">
                    <h4>Hindsight 20/20</h4>
                        <p class="left">We understand your predicament. Investing in new companies is a huge risk and the market is like a giant slot machine. You may think you have a better chance playing the lottery than investing in a small company on the hopes that one day they will make it. Well, we are here to change your mind.</p></div>
-               <div class="col-md-4" id="image-pg2">
-                   <img src="/Users/hamzahaseeb/DigitalCrafts-06-2017/JavaScript101/invest Regret Project/sad.svg" class="center-block
-                   img-responsive" id="money-bags"></div>
+               <div class="col-sm-4" id="image-pg3">
+                   <img src="/Users/hamzahaseeb/DigitalCrafts-06-2017/JavaScript101/invest Regret Project/sad.svg" id="money-bag"></div>
                <div class="col-sm-4">
                    <h4>History will repeat itself unless....</h4>
                        <p class="right">Using a bright colored website, we show you what your net-worth could've been if you invested in the market. This is a tool for you to see how a little investment could've changed your life.</p></div>
@@ -71,19 +69,19 @@
                 <div class="row" id="3pgcontiner3">
                     <div class="col-md-4">  
                         <div class="row"id="tickername-start-end">
-                            <div class="col-sm-10">
+                            <div class="col-md-10">
                                 <div class="form-group">  
                                     <label for="ticker" class="control-label">TICKER NAME</label>
                                     <input class="form-control" name="ticker" id="tickerName" data-role="ticker-name" pattern="[A-Za-z]{2,5}" title="Stock Ticker name: 2 to 5 characters" required>
                                 </div>  
                             </div>    
-                            <div class="col-sm-10">
+                            <div class="col-md-10">
                                 <div class="form-group">
                                     <label for="inputDate1" class="control-label">START DATE</label>
                                     <input type="date" class="form-control" id="inputDate1" placeholder="Date" data-role="start-date">
                                 </div>
                             </div>
-                            <div class='col-sm-10'> 
+                            <div class='col-md-10'> 
                                 <div class="form-group">
                                     <label for="inputDate2" class="control-label" >END DATE</label>
                                     <input type="date" class="form-control" id="inputDate2" placeholder="Date" data-role="end-date">
@@ -92,7 +90,7 @@
                         </div>
                     </div>
                     
-                    <div class="col-md-4" id="image-pg3">
+                    <div class="col-md-4" id="image-pg2">
                         <!-- <img src='/Users/hamzahaseeb/DigitalCrafts-06-2017/JavaScript101/invest Regret Project/money-bag.svg' id="money-bags"> -->
                         <img src='https://www.stockpools.com/assets/images/frontpage/money-bag.svg' id="money-bags">
                     </div>
@@ -156,7 +154,7 @@
         <form data-stock-order="form2">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4 fourth">
                         <div class="row">
                             <div class="col-md-10">
                                 <div class="form-group">
@@ -181,7 +179,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4" id="image-pg3">
+                    <div class="col-md-4" id="image-pg2">
                         <!-- <img src='/Users/hamzahaseeb/DigitalCrafts-06-2017/JavaScript101/invest Regret Project/money-bag.svg' id="money-bags"> -->
                         <img src='https://www.dijitalkafa.com/wp-content/uploads/backup/2016/08/coin-stack.png' id="money-bags">
                     </div>
@@ -201,7 +199,7 @@
             </div>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="fourth-button">
+                    <div class="col-xs-12 col-md-12 fourth-button">
                         <button type="submit" class="btn btn-default">SUBMIT</button>
                         <!--<button type="reset" class="btn btn-default">Reset</button>-->
                     </div>
@@ -210,15 +208,16 @@
             <div class="container-fluid"id='pg4-3-boxs'>
                 <div class="row">
                     <div class="fourth-page-3">
-                        <div class='col-xs-6 col-md-4'>
+                        <div class='col-xs-12 col-md-4'>
                             <div class="row">
                                 <div class='col-xs-12 col-md-12'>
                                     <h4 id='coin-start-date'></h4>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class='col-xs-12 col-md-12'></div>
+                                <div class='col-xs-12 col-md-12'>
                                 <h4 id="coin-price"></h4>
+                                </div>
                             </div>
                         </div>
                         <div class='col-xs-12 col-md-4'id='coin-img-div'>
@@ -237,15 +236,14 @@
             </div>
         </form>
     </div>
-        <div class="five">
+         <div class="five">
             <div class="container">
                     <div class="row">
-                        <div class="bottom-button">
-                            <button type="button" class="btn btn-primary btn-lg">LEARN MORE</button>
+                        <p>API: Crypto Compare and Quandel WIKI</p>
                         </div>
                     </div>
             </div>
-        </div>
+        </div> 
 
         
     
@@ -253,7 +251,15 @@
         src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous">
-    </script>
+</script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+   <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+ 
+
+
     <script src="main.js" charset="utf-8"></script>
 </body>
 </html>
