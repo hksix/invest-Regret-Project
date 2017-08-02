@@ -283,10 +283,3 @@ Coin.prototype.getInfo= function(URL){
             this.startDate = data["Data"]["General"]['StartDate'];
         }.bind(this));
 }
-
-
-
-
-
-
-
