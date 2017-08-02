@@ -1,4 +1,5 @@
-# Invest Regret:
+Invest Regret
+
 
 Ever regretted not investing? Invest Regret utilizes API's in order to calculate net worth based on your investment.
 We provide users with information regarding the NASDAQ, NYSE, Bitcoins and Etherium based on when an investment was placed. The front end utilizes bootstrap based grids with design heavy techniques.
@@ -14,39 +15,20 @@ We provide users with information regarding the NASDAQ, NYSE, Bitcoins and Ether
 * Real time updates on prices for Bitcoin, Etherium, and a selected stock.
 * Updates on stock splits during a given period.
 * Responsive design through the use of Bootstrap and media queries.
-* Use of scroll.js for animation on scroll.
+* Use of scrollmagic.js and Greensock.js for animation on scroll.
 
-
-```
-Stock splits:
-```
-
-```
-Chartist.js
-```
-
-```
-More examples?
-```
 
 ### Issues:
 * The Quandl API provided stock prices without taking splits into account. If a specific stock split at a 2:1 ratio a $50 share would now be $25. We had to account for the amount of splits during a specific time period adjust the share price based on the end date.
-* We repeatedly utilized the same class names during while developing the front end, which would overwrite changes.
-* Problems coordinated Github pulls and merges.
+* We repeatedly utilized the same class names while developing the front end, which would overwrite changes.
+* Problems coordinating Github pulls and merges.
 
 
+### Stretch Goals: 
+* Add more crypto currencies
+* Add start date feature for crypto currency.
+* Implement more advanced scrollmagic and greensock techniques. 
 
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
@@ -56,9 +38,10 @@ Add additional notes about how to deploy this on a live system
 * Scrollmagic.js
 * Chartist.js
 * Jquery
+* Greensock.js
 
 ## Authors
 
 * **Hamza Haseeb** *
 * **John Hartert** *
-* **Andrew Lastrappes** *
+* **Andrew Lastrapes** *
