@@ -20,7 +20,7 @@ We provide users with information regarding the NASDAQ, NYSE, Bitcoins and Ether
 
 ### Issues:
 * The Quandl API provided stock prices without taking splits into account. If a specific stock split at a 2:1 ratio a $50 share would now be $25. We had to account for the amount of splits during a specific time period adjust the share price based on the end date.
-* We repeatedly utilized the same class names while developing the front end, which would overwrite changes.
+* We utilized multiple libraries which conflicted with bootstraps default settings. We had to go back through the HTML line by line and figure out where conflicts were occuring. 
 * Problems coordinating Github pulls and merges.
 
 
