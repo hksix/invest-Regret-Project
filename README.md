@@ -1,7 +1,6 @@
 ### Invest Regret
 
-
-Ever regretted not investing? Invest Regret utilizes API's in order to calculate net worth based on your investment.
+Ever regretted not investing? Invest Regret utilizes stock API's in order to calculate net worth based on your investment.
 We provide users with information regarding the NASDAQ, NYSE, Bitcoins and Etherium based on when an investment was placed. The front end utilizes bootstrap based grids with design heavy techniques.
 
 ## Demo:
@@ -19,14 +18,14 @@ We provide users with information regarding the NASDAQ, NYSE, Bitcoins and Ether
 
 
 ### Issues:
-* The Quandl API provided stock prices without taking splits into account. If a specific stock split at a 2:1 ratio a $50 share would now be $25. We had to account for the amount of splits during a specific time period adjust the share price based on the end date.
-* We utilized multiple libraries which conflicted with bootstraps default settings. We had to go back through the HTML line by line and figure out where conflicts were occuring. 
-* Problems coordinating Github pulls and merges.
+* The Quandl API provided stock prices that were pre-adjusted taking splits into account. If a specific stock split at a 2:1 ratio, the historical stock price of $25 share is recorded as $50 in the API . We had to account for the amount of splits during a specific time period then adjust the share price based on the end date. Using the same AJAX call to obtain the stock data, we generate an array of values and dates of when the split ratio has higher than 1. We then used a factorial function to un-adjust the stock prices.
+* We utilized multiple libraries which conflicted with bootstrap’s default settings. We had to go back through the HTML to figure out where conflicts were occurring. We then resolved the problem by omitting the use of bootstrap where the conflicts emerged. This also helped us refactor the design code which produced lighter and quicker DOM manipulations to occur. 
+* Initial problems coordinating GitHub pulls and merges were resolved once we consulted the documentation for proper project development flow. 
 
 
 ### Stretch Goals: 
 * Add more crypto currencies
-* Add start date feature for crypto currency.
+* Add start date feature for crypto currency. Currently hardcoded dates due to API limitations.
 * Implement more advanced scrollmagic and greensock techniques. 
 * Add predictive text for Nasdaq ticker name.
 
