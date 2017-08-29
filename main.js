@@ -5,14 +5,14 @@
 // var apiKey = "5X4II9G2P5S3BJ05";
 // var URL = "https://www.alphavantage.co/query?"
 var $URL =  "https://www.quandl.com/api/v3/datatables/WIKI/PRICES.json?"
-
+var $stockForm = $('[data-stock-order="form1"]');
+var $coinForm = $('[data-stock-order="form2"]');
 var $tickerName = $('[data-role="ticker-name"]');
 var $timeInterval = $('[data-role="time-interval"]');
 var $amountInvested = $('[data-role="amount-invested"]');
 var $startDate = $('[data-role="start-date"]');
 var $endDate = $('[data-role="end-date"]');
 var $dataKeyNameArr = [ ['tickerName', $tickerName], 
-
                         ['amountInvested' , $amountInvested],
                         ['startDate', $startDate],
                         ['endDate', $endDate],
@@ -335,15 +335,4 @@ var scene = new ScrollMagic.Scene({triggerElement: "H2", duration: "75%"})
    .setTween(tween)
                  
    .addTo(controller);
-
-
-
-         
-        });   
-}
-
-
-
-// ------------------------------------------------------------------------
-// for bit coin page
 
