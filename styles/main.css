@@ -70,11 +70,8 @@ a{
 display: none;
 }
 
-#money-bag{
-    margin-top:30%;
-}
 img{
-    margin-top: 10%;
+    margin-top: 20px;
 }
 
 /*Styling for "Let's look up some prices."*/
@@ -203,7 +200,6 @@ h4 {
 	padding : 0;
 }
 .five{
-    
     height: auto;
 }
 /* Circle Text Container - constrains text area to within the circle */
@@ -272,8 +268,8 @@ h4 {
     /* display: none; */
     font-weight: 800; 
     color: white;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 200px;
+    padding-right: 200px;
     padding-bottom: 50px;
     padding-top: 50px;
     font-family: 'Lato', sans-serif;
@@ -290,23 +286,12 @@ h2{
     color: white;
     transition: all 1s ease-out;
 }
-@media only screen and (max-width : 767px) {
+
 h2.finish{
     text-align: right;
     transform: translate(.05%);
-    padding-right: 15%;
+    padding-right: 105px;
 }
-.fourth-button .btn{
-    background-color: #FAA614;
-    color: white;
-    font-weight: 800;
-    border-radius: 25px;
-    padding: 15px;
-    margin-left: 37.5%;
-    margin-top: 2%;
-    font-family: 'Lato', sans-serif;
-}
-
 
 #coin-net-worth-circle-text{
     font-size: 20px;
@@ -352,16 +337,18 @@ h2.finish{
 #coin-net-worth-circle-text{}
 
 /*Styling for the button in the fourth div.*/
-/* .fourth-button .btn{
+.fourth-button .btn{
+     display: flex;
+    justify-content: center; 
     background-color: #FAA614;
     color: white;
     font-weight: 800;
     border-radius: 25px;
     padding: 15px;
-    margin-left: 44.5%;
+    margin-left: 40%;
     margin-top: 2%;
     font-family: 'Lato', sans-serif;
-} */
+}
 
 /*Styling for inputs in the NASDAQ and CRYPTO sections.*/
 .col-sm-3{
@@ -404,7 +391,6 @@ h1.main {
     width: 100%;
   }
 }
-}
 
 
 @media only screen and (min-width: 768px){
@@ -431,38 +417,17 @@ h3.logo {
     text-align: center;
 }
 
-.third-button .btn{
-    background-color: #FAA614;
-    color: white;
-    font-weight: 800;
-    border-radius: 25px;
-    padding: 15px;
-    margin-left: 40%;
-    margin-top: 2%;
-    font-family: 'Lato', sans-serif;
-}
-
-#coin-net-worth-circle-text{}
-
-
 .fourth-button .btn{
-    background-color: #FAA614;
-    color: white;
-    font-weight: 800;
-    border-radius: 25px;
-    padding: 15px;
-    margin-left: 44.5%;
-    margin-top: 2%;
-    font-family: 'Lato', sans-serif;
-}
-.fourth-button .btn{
-    /* margin-left: 46%; */
+    margin-left: 47%;
+
     text-align: center;
+    font-size: 80px;
+    background-color: #FAA614;
 }
 
-/*HK start Monday  */
-#pg4-3-boxs{
+
     text-align: center;
+
 }
 #twitter-handle{
     text-align: center;
@@ -592,22 +557,11 @@ h4 {
 	transform : translateY(-50%);
 }
 /*HK -end  */
-.four{
-    /* display: flex; */
-    background-color: #4D20A4;
-    height: auto;
-    padding-top: 2%;
-    text-align: left; 
-    font-weight: 800;
-    color: white;
-    font-size: 20px;
-    font-family: 'Lato', sans-serif;
-}
 
 /*Lorem Ipsum underneath "Let's look up some prices." Andrew added a pOne class here.*/
 .pOne{
      font-weight: 800; 
-    color: white;
+    color: #FC4A1A;
     padding-left: 200px;
     padding-right: 200px;
     padding-bottom: 50px;
@@ -626,7 +580,7 @@ h2{
 
 /*Styling for the button in the third box.*/
 .third-button .btn{
-    margin-left: 46%;
+    margin-left: 47%;
     text-align: center;
 }
 
@@ -676,8 +630,6 @@ h3.logo {
 }
 
 .fourth-button .btn{
-    /* display: flex;
-    justify-content: center; */
     margin-left: 47%;
     text-align: center;
 }
