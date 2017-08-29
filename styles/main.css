@@ -1,3 +1,4 @@
+
 /*This keeps white space from showing up on the right side.*/
 html,body{
     width: 100%;
@@ -394,6 +395,7 @@ h1.main {
 @keyframes slidein {
   from {
     margin-left: 100%;
+
     width: 300%; 
   }
 
@@ -556,18 +558,7 @@ h4 {
 
 }
 
-/*Third box.*/
-/*hk start  */
-.three{
-    background-color: #2461BF;
-    height: auto;
-    padding-top: 2%;
-    text-align: left;
-    font-weight: 800;
-    color: white;
-    font-size: 20px;
-    font-family: 'Lato', sans-serif;
-    
+
 }
 #image-pg3{
     display: flex;
@@ -584,6 +575,7 @@ h4 {
     display: flex;
     justify-content: center;
 }
+
 
 
 
@@ -823,6 +815,7 @@ h4 {
 {
 	/* change font/size/etc here */
     /*////////////////////////////////////////*/
+
 	font: 11px;
 	
 	/* vertical centering technique */
@@ -872,5 +865,4 @@ a:hover {
     color: white;
     text-decoration: none;
 }
-
 
